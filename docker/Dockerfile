@@ -40,4 +40,5 @@ RUN while IFS= read -r ext; do \
 
 EXPOSE 8080
 
+ENTRYPOINT []
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/rex.conf"]

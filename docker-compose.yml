@@ -57,8 +57,6 @@ services:
       MQTT_BROKER_HOST: viewer-mosquitto
       MQTT_BROKER_PORT: "1883"
       HOST_MAC_ADDRESS: ${HOST_MAC_ADDRESS:-}
-    ports:
-      - "8000:8000"
     depends_on:
       - viewer-db
     networks:
