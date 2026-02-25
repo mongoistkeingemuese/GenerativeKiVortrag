@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Speaker Notes &mdash; REX</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', 'Liberation Sans', system-ui, sans-serif;
+      background: #1a1a2e;
+      color: #e0e0e0;
+      padding: 24px;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      flex-shrink: 0;
+    }
+    .header h1 { font-size: 1.1rem; color: #3498db; }
+    .header .counter { font-size: 1rem; color: #7f8c8d; font-family: monospace; }
+    .timer-area {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+      flex-shrink: 0;
+    }
+    #timer {
+      font-family: monospace;
+      font-size: 2rem;
+      color: #3498db;
+    }
+    button {
+      background: #2c3e50;
+      color: #e0e0e0;
+      border: 1px solid #3498db;
+      border-radius: 4px;
+      padding: 6px 14px;
+      cursor: pointer;
+      font-size: 0.85rem;
+    }
+    button:hover { background: #3498db; color: white; }
+    .slide-title {
+      font-size: 1.4rem;
+      margin-bottom: 12px;
+      color: #ffffff;
+    }
+    .notes {
+      flex: 1;
+      background: #16213e;
+      border-radius: 8px;
+      padding: 20px;
+      font-size: 1.15rem;
+      line-height: 1.7;
+      overflow-y: auto;
+    }
+    .notes em { color: #7f8c8d; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>Speaker Notes</h1>
+    <span class="counter" id="slideCounter">&mdash;</span>
+  </div>
+  <div class="timer-area">
+    <span id="timer">00:00:00</span>
+    <button id="resetTimer">Reset</button>
+  </div>
+  <div class="slide-title" id="slideTitle">Warte auf Pr&auml;sentation&hellip;</div>
+  <div class="notes" id="notes"><em>Navigiere in der Pr&auml;sentation, um Speaker Notes zu sehen.</em></div>
+
+  <script src="js/presenter.js"></script>
+</body>
+</html>

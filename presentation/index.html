@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generative KI im Programmieralltag</title>
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/slides.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+  <div class="slide-deck">
+
+    <!-- Slide 1: Titel -->
+    <section class="slide slide--title">
+      <h1>Generative KI im Programmieralltag</h1>
+      <p class="subtitle">Was geht, was bringt's, und wie schnell ist man wirklich?</p>
+      <p class="meta">Live-Demo &amp; interaktive Pr&auml;sentation</p>
+      <aside class="notes" hidden>Willkommen! Diese Pr&auml;sentation ist selbst eine Demo &mdash; sie l&auml;uft als Website in einem Docker-Container, komplett mit KI-Chat und VS Code im Browser.</aside>
+    </section>
+
+    <!-- Slide 2: Agenda -->
+    <section class="slide">
+      <h2>Agenda</h2>
+      <ul>
+        <li>Was ist Generative KI?</li>
+        <li>LLMs im &Uuml;berblick</li>
+        <li>KI-Werkzeuge f&uuml;r Entwickler</li>
+        <li>Live-Demos: Code generieren, erkl&auml;ren, testen, refactoren</li>
+        <li>Live-Demo: 3D-Viewer</li>
+        <li>Prompt Engineering Grundlagen</li>
+        <li>Sicherheit, Grenzen &amp; Best Practices</li>
+        <li>Integration in den Workflow</li>
+        <li>Fragen &amp; Diskussion</li>
+      </ul>
+      <aside class="notes" hidden>Die Agenda gibt einen &Uuml;berblick. Wichtig: Wir haben mehrere Live-Demos eingebaut, bei denen ihr auch mitmachen k&ouml;nnt.</aside>
+    </section>
+
+    <!-- Slide 3: Was ist Generative KI? -->
+    <section class="slide">
+      <h2>Was ist Generative KI?</h2>
+      <div class="columns">
+        <div>
+          <ul>
+            <li>KI, die <strong>neue Inhalte erzeugt</strong> (Text, Code, Bilder)</li>
+            <li>Trainiert auf riesigen Datens&auml;tzen</li>
+            <li>Lernt Muster und Zusammenh&auml;nge</li>
+            <li>Generiert Ausgaben basierend auf Eingaben (Prompts)</li>
+          </ul>
+        </div>
+        <div>
+          <div class="highlight-box">
+            <h3>Kernidee</h3>
+            <p>Statt Regeln zu programmieren, lernt das Modell aus Beispielen &mdash; und kann dann <strong>neue, &auml;hnliche Inhalte</strong> produzieren.</p>
+          </div>
+        </div>
+      </div>
+      <aside class="notes" hidden>Generative KI unterscheidet sich von klassischer KI: Sie erstellt neue Inhalte statt nur zu klassifizieren oder vorherzusagen. F&uuml;r uns Entwickler besonders relevant: Code-Generierung.</aside>
+    </section>
+
+    <!-- Slide 4: LLMs im Überblick -->
+    <section class="slide">
+      <h2>LLMs im &Uuml;berblick</h2>
+      <ul>
+        <li><strong>GPT-4o / o1</strong> &mdash; OpenAI, Allrounder mit starker Code-F&auml;higkeit</li>
+        <li><strong>Claude</strong> &mdash; Anthropic, exzellent f&uuml;r l&auml;ngere Kontexte und Analyse</li>
+        <li><strong>Gemini</strong> &mdash; Google, multimodal (Text, Bild, Code)</li>
+        <li><strong>Llama / Mistral</strong> &mdash; Open-Source-Alternativen, lokal betreibbar</li>
+        <li><strong>CodeLlama / DeepSeek</strong> &mdash; Spezialisiert auf Code</li>
+      </ul>
+      <div class="highlight-box">
+        <p>Alle Modelle werden st&auml;ndig besser. Entscheidend ist nicht <em>welches</em> Modell, sondern <em>wie</em> man es einsetzt.</p>
+      </div>
+      <aside class="notes" hidden>Kurzer &Uuml;berblick &uuml;ber die wichtigsten Modelle. Nicht zu tief einsteigen &mdash; der Markt &auml;ndert sich schnell. Wichtig: Es gibt nicht DAS beste Modell.</aside>
+    </section>
+
+    <!-- Slide 5: KI-Werkzeuge für Entwickler -->
+    <section class="slide">
+      <h2>KI-Werkzeuge f&uuml;r Entwickler</h2>
+      <div class="columns">
+        <div>
+          <h3>Im Editor</h3>
+          <ul>
+            <li><strong>GitHub Copilot</strong> &mdash; Autovervollst&auml;ndigung</li>
+            <li><strong>Claude Code</strong> &mdash; CLI-Agent</li>
+            <li><strong>Cursor / Windsurf</strong> &mdash; KI-native IDEs</li>
+            <li><strong>Continue</strong> &mdash; Open-Source-Alternative</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Standalone</h3>
+          <ul>
+            <li><strong>ChatGPT / Claude.ai</strong> &mdash; Web-Chat</li>
+            <li><strong>Aider</strong> &mdash; Terminal-basiert</li>
+            <li><strong>v0.dev</strong> &mdash; UI-Generierung</li>
+            <li><strong>Bolt.new</strong> &mdash; Full-Stack in Sekunden</li>
+          </ul>
+        </div>
+      </div>
+      <aside class="notes" hidden>Die Tool-Landschaft ist riesig. Wir konzentrieren uns auf die, die im t&auml;glichen Entwicklungsalltag am meisten bringen.</aside>
+    </section>
+
+    <!-- Slide 6: Copilot, ChatGPT & Co. -->
+    <section class="slide">
+      <h2>Copilot, ChatGPT &amp; Co. &mdash; Was bringt's wirklich?</h2>
+      <ul>
+        <li><strong>Boilerplate eliminieren</strong> &mdash; Repetitiver Code in Sekunden</li>
+        <li><strong>Schneller Prototypen</strong> &mdash; Von Idee zu funktionierendem Code</li>
+        <li><strong>Neue Sprachen/Frameworks lernen</strong> &mdash; KI als Tutor</li>
+        <li><strong>Dokumentation &amp; Tests</strong> &mdash; Das Unbeliebte automatisieren</li>
+        <li><strong>Debugging-Partner</strong> &mdash; Zweites Paar Augen, 24/7</li>
+      </ul>
+      <div class="highlight-box">
+        <p><strong>Studien zeigen: 30-50% schneller</strong> bei typischen Entwicklungsaufgaben (GitHub, McKinsey 2024)</p>
+      </div>
+      <aside class="notes" hidden>Hier die konkreten Vorteile. Die Studien sind echt &mdash; GitHub's eigene Studie und McKinsey haben &auml;hnliche Ergebnisse gezeigt.</aside>
+    </section>
+
+    <!-- Slide 7: Live-Demo: Code generieren -->
+    <section class="slide slide--demo" data-chat="code-gen">
+      <h2>Live-Demo: Code generieren</h2>
+      <p>Fragt die KI &mdash; sie generiert Code in Echtzeit.</p>
+      <div class="demo-container" id="demo-code-gen">
+        <div style="display:flex; align-items:center; justify-content:center; width:100%; color:var(--color-text-light);">
+          Chat-Widget wird geladen&hellip;
+        </div>
+      </div>
+      <aside class="notes" hidden>Hier das Chat-Widget &ouml;ffnen und live Code generieren lassen. Gute Beispiele: Eine REST-API in Python, ein React-Formular, ein SQL-Query.</aside>
+    </section>
+
+    <!-- Slide 8: Live-Demo: Code erklären -->
+    <section class="slide slide--demo" data-chat="code-explain">
+      <h2>Live-Demo: Code erkl&auml;ren</h2>
+      <p>Paste Code rein &mdash; die KI erkl&auml;rt, was passiert.</p>
+      <div class="demo-container" id="demo-code-explain">
+        <div style="display:flex; align-items:center; justify-content:center; width:100%; color:var(--color-text-light);">
+          Chat-Widget wird geladen&hellip;
+        </div>
+      </div>
+      <aside class="notes" hidden>Vorbereiteten Code-Schnipsel reinpasten und erkl&auml;ren lassen. Zeigt wie gut die KI komplexen Code versteht.</aside>
+    </section>
+
+    <!-- Slide 9: Live-Demo: Tests schreiben (VS Code) -->
+    <section class="slide slide--demo" data-vscode="true">
+      <h2>Live-Demo: Tests schreiben</h2>
+      <p>VS Code im Browser &mdash; mit KI-Unterst&uuml;tzung Tests generieren.</p>
+      <div class="demo-container" id="demo-vscode-tests">
+        <iframe src="/code/" title="VS Code"></iframe>
+      </div>
+      <aside class="notes" hidden>VS Code &ouml;ffnet sich direkt hier. Zeige: Datei &ouml;ffnen, KI-Extension nutzen, Tests generieren lassen. Beeindruckend wie gut die generierten Tests sind.</aside>
+    </section>
+
+    <!-- Slide 10: Live-Demo: Refactoring (VS Code) -->
+    <section class="slide slide--demo" data-vscode="true">
+      <h2>Live-Demo: Refactoring</h2>
+      <p>Schlechten Code rein &mdash; sauberen Code raus.</p>
+      <div class="demo-container" id="demo-vscode-refactor">
+        <iframe src="/code/" title="VS Code"></iframe>
+      </div>
+      <aside class="notes" hidden>Vorbereiteten &quot;schlechten&quot; Code &ouml;ffnen und mit KI refactoren. Zeigt: Code-Smells erkennen, Verbesserungen vorschlagen, automatisch umsetzen.</aside>
+    </section>
+
+    <!-- Slide 11: Live-Demo: 3D-Viewer -->
+    <section class="slide slide--demo">
+      <h2>Live-Demo: 3D-Viewer</h2>
+      <p>Ein komplettes Projekt, gebaut mit KI-Unterst&uuml;tzung &mdash; React, Three.js, FastAPI.</p>
+      <div class="demo-container" id="demo-3d-viewer">
+        <iframe src="http://localhost:5174" title="3D Viewer"></iframe>
+      </div>
+      <aside class="notes" hidden>Der 3D-Viewer ist ein echtes Projekt: React-Frontend mit Three.js, FastAPI-Backend, PostgreSQL, MQTT. Zeigt was mit KI-Unterst&uuml;tzung in kurzer Zeit m&ouml;glich ist.</aside>
+    </section>
+
+    <!-- Slide 12: Prompt Engineering Grundlagen -->
+    <section class="slide">
+      <h2>Prompt Engineering Grundlagen</h2>
+      <ul>
+        <li><strong>Sei spezifisch</strong> &mdash; Je genauer der Prompt, desto besser das Ergebnis</li>
+        <li><strong>Kontext mitgeben</strong> &mdash; Sprache, Framework, Constraints</li>
+        <li><strong>Beispiele liefern</strong> &mdash; Ein-/Ausgabe-Paare zeigen das gew&uuml;nschte Format</li>
+        <li><strong>Rolle definieren</strong> &mdash; &quot;Du bist ein Senior Python-Entwickler&quot;</li>
+        <li><strong>Iterativ arbeiten</strong> &mdash; Ergebnis verfeinern statt alles auf einmal</li>
+      </ul>
+      <aside class="notes" hidden>Prompt Engineering ist die Schl&uuml;sselkompetenz. Nicht das Modell macht den Unterschied, sondern wie gut man promptet.</aside>
+    </section>
+
+    <!-- Slide 13: Dos and Don'ts -->
+    <section class="slide">
+      <h2>Dos and Don'ts</h2>
+      <div class="columns">
+        <div>
+          <h3 style="color: var(--color-success);">Do</h3>
+          <ul>
+            <li>KI-Code immer <strong>reviewen</strong></li>
+            <li>Als <strong>Startpunkt</strong> nutzen, nicht als Endprodukt</li>
+            <li><strong>Tests schreiben</strong> f&uuml;r generierten Code</li>
+            <li>Prompt-Muster <strong>dokumentieren</strong> und teilen</li>
+          </ul>
+        </div>
+        <div>
+          <h3 style="color: var(--color-danger);">Don't</h3>
+          <ul>
+            <li>Blind <strong>Copy-Paste</strong> ohne Verst&auml;ndnis</li>
+            <li><strong>Sensible Daten</strong> in Cloud-Prompts</li>
+            <li>KI-Code als <strong>100% korrekt</strong> annehmen</li>
+            <li><strong>Lizenzen ignorieren</strong> bei generiertem Code</li>
+          </ul>
+        </div>
+      </div>
+      <aside class="notes" hidden>Wichtige Regeln f&uuml;r den verantwortungsvollen Einsatz. Der Punkt mit sensiblen Daten ist besonders wichtig f&uuml;r Unternehmenskontexte.</aside>
+    </section>
+
+    <!-- Slide 14: Sicherheit & Datenschutz -->
+    <section class="slide">
+      <h2>Sicherheit &amp; Datenschutz</h2>
+      <ul>
+        <li><strong>Keine Secrets in Prompts</strong> &mdash; API-Keys, Passw&ouml;rter, Tokens</li>
+        <li><strong>Firmenrichtlinien beachten</strong> &mdash; Welche Tools sind freigegeben?</li>
+        <li><strong>Lokale Alternativen</strong> &mdash; Self-hosted Modelle f&uuml;r sensible Projekte</li>
+        <li><strong>Code-Review bleibt Pflicht</strong> &mdash; KI kann Sicherheitsl&uuml;cken einbauen</li>
+        <li><strong>DSGVO &amp; Compliance</strong> &mdash; Wohin flie&szlig;en die Daten?</li>
+      </ul>
+      <div class="highlight-box">
+        <p>Faustregel: Was du nicht in eine &ouml;ffentliche E-Mail schreiben w&uuml;rdest, geh&ouml;rt nicht in einen Cloud-Prompt.</p>
+      </div>
+      <aside class="notes" hidden>Sicherheit ist kein Blocker, aber muss bedacht werden. Enterprise-L&ouml;sungen wie GitHub Copilot Business oder Azure OpenAI bieten mehr Kontrolle.</aside>
+    </section>
+
+    <!-- Slide 15: Grenzen von KI-Assistenten -->
+    <section class="slide">
+      <h2>Grenzen von KI-Assistenten</h2>
+      <ul>
+        <li><strong>Halluzinationen</strong> &mdash; KI erfindet plausibel klingende Falschinformationen</li>
+        <li><strong>Veraltetes Wissen</strong> &mdash; Training-Cutoff, kennt neueste APIs nicht</li>
+        <li><strong>Kontextfenster</strong> &mdash; Gro&szlig;e Codebasen passen nicht komplett rein</li>
+        <li><strong>Kein echtes Verst&auml;ndnis</strong> &mdash; Mustererkennung, nicht Logik</li>
+        <li><strong>Architektur-Entscheidungen</strong> &mdash; Hier bleibt der Mensch gefragt</li>
+      </ul>
+      <aside class="notes" hidden>Ehrlich &uuml;ber Grenzen sprechen sch&auml;rft die Glaubw&uuml;rdigkeit. KI ist ein Werkzeug, kein Ersatz f&uuml;r Denken.</aside>
+    </section>
+
+    <!-- Slide 16: Integration in den Workflow -->
+    <section class="slide">
+      <h2>Integration in den Workflow</h2>
+      <ul>
+        <li><strong>IDE-Integration</strong> &mdash; Copilot/Continue direkt im Editor</li>
+        <li><strong>CLI-Tools</strong> &mdash; Claude Code, Aider f&uuml;r Terminal-Workflows</li>
+        <li><strong>Code-Review</strong> &mdash; KI als erster Reviewer vor dem PR</li>
+        <li><strong>CI/CD</strong> &mdash; Automatische Test-Generierung in der Pipeline</li>
+        <li><strong>Dokumentation</strong> &mdash; README, API-Docs, Changelogs generieren</li>
+      </ul>
+      <div class="highlight-box">
+        <p>Die beste Integration ist die, die man nicht merkt &mdash; nahtlos im bestehenden Workflow.</p>
+      </div>
+      <aside class="notes" hidden>Zeige konkrete Workflows: Git commit message generieren, PR-Beschreibung, Changelog. Die KI passt sich dem Workflow an, nicht umgekehrt.</aside>
+    </section>
+
+    <!-- Slide 17: ROI & Produktivität -->
+    <section class="slide">
+      <h2>ROI &amp; Produktivit&auml;t</h2>
+      <div class="columns">
+        <div>
+          <h3>Messbare Vorteile</h3>
+          <ul>
+            <li>30-50% schnellere Task-Completion</li>
+            <li>Weniger kontextwechsel</li>
+            <li>Schnelleres Onboarding in neuen Projekten</li>
+            <li>Bessere Test-Abdeckung</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Kosten</h3>
+          <ul>
+            <li>Copilot: ~19$/Monat</li>
+            <li>Claude Pro: ~20$/Monat</li>
+            <li>ChatGPT Plus: ~20$/Monat</li>
+            <li>ROI: Positiv ab Tag 1</li>
+          </ul>
+        </div>
+      </div>
+      <aside class="notes" hidden>Die Kosten sind minimal im Vergleich zum Gehalt eines Entwicklers. Selbst eine Stunde Zeitersparnis pro Woche rechtfertigt die Kosten.</aside>
+    </section>
+
+    <!-- Slide 18: Zusammenfassung -->
+    <section class="slide">
+      <h2>Zusammenfassung</h2>
+      <ul>
+        <li>Generative KI ist <strong>kein Hype mehr</strong> &mdash; sie ist Werkzeug</li>
+        <li><strong>Prompt Engineering</strong> ist die neue Kernkompetenz</li>
+        <li><strong>Review und Verst&auml;ndnis</strong> bleiben unverzichtbar</li>
+        <li><strong>Sicherheit und Datenschutz</strong> aktiv mitdenken</li>
+        <li>Jetzt einsteigen &mdash; die Lernkurve ist <strong>flacher als gedacht</strong></li>
+      </ul>
+      <div class="highlight-box">
+        <p>Die Frage ist nicht <em>ob</em> man KI nutzt, sondern <em>wie gut</em>.</p>
+      </div>
+      <aside class="notes" hidden>Zusammenfassung der Kernbotschaften. Die wichtigste Message: Jetzt anfangen, nicht warten.</aside>
+    </section>
+
+    <!-- Slide 19: Fragen & Diskussion -->
+    <section class="slide slide--end" data-chat="open">
+      <h2>Fragen &amp; Diskussion</h2>
+      <p class="subtitle">Fragt die KI &mdash; oder mich.</p>
+      <p class="meta" style="margin-top: 2em;">Chat-Widget nutzen oder einfach fragen!</p>
+      <aside class="notes" hidden>Chat-Widget ist offen. Kollegen k&ouml;nnen selbst Fragen an die KI stellen oder an mich direkt.</aside>
+    </section>
+
+  </div>
+
+  <!-- Progress Bar -->
+  <div class="progress-bar"></div>
+
+  <!-- Slide Counter -->
+  <div class="slide-counter"></div>
+
+  <!-- Chat Toggle Button -->
+  <button class="chat-toggle" id="chatToggle" title="KI-Chat &ouml;ffnen">&#128172;</button>
+
+  <!-- Chat Panel -->
+  <div class="chat-panel" id="chatPanel">
+    <div class="chat-header">
+      <h3>KI-Assistent</h3>
+      <button class="chat-close" id="chatClose">&times;</button>
+    </div>
+    <div class="chat-status" id="chatStatus">Bereit</div>
+    <div class="chat-messages" id="chatMessages"></div>
+    <div class="chat-input-area">
+      <input type="text" class="chat-input" id="chatInput" placeholder="Nachricht eingeben&hellip;" autocomplete="off">
+      <button class="chat-send" id="chatSend" title="Senden">&#10148;</button>
+    </div>
+  </div>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
