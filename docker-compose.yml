@@ -10,6 +10,7 @@ services:
     restart: unless-stopped
     ports:
       - "8080:8080"
+      - "8443:8443"
     environment:
       - LLM_PROVIDER=${LLM_PROVIDER:-openai}
       - LLM_API_URL=${LLM_API_URL:-https://api.openai.com/v1}
@@ -45,7 +46,7 @@ services:
       dockerfile: Dockerfile
     container_name: rex-viewer-backend
     restart: unless-stopped
-    command: uvicorn src.main:app --host 0.0.0.0 --port 8000 --reload
+    command: sh -c "git config --global --add safe.directory /app/data/git-backup && uvicorn src.main:app --host 0.0.0.0 --port 8000 --reload"
     volumes:
       - ../3DViewer/backend:/app
       - viewer_stl_assets:/app/data/stls
@@ -60,7 +61,9 @@ services:
     depends_on:
       - viewer-db
     networks:
-      - rex-network
+      rex-network:
+        aliases:
+          - backend
 
   viewer-frontend:
     build:
@@ -70,6 +73,8 @@ services:
     restart: unless-stopped
     ports:
       - "5174:5173"
+    environment:
+      - VITE_API_URL=/api/v1
     volumes:
       - ../3DViewer/frontend:/app
       - /app/node_modules

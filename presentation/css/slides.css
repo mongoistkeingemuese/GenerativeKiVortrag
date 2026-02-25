@@ -32,7 +32,7 @@ html, body {
   flex-direction: column;
   justify-content: center;
   padding: 60px 80px;
-  background: var(--color-bg);
+  background: var(--color-bg-gradient, var(--color-bg));
   opacity: 0;
   pointer-events: none;
   z-index: 0;
@@ -62,8 +62,27 @@ html, body {
   justify-content: center;
   align-items: center;
   text-align: center;
-  background: linear-gradient(135deg, var(--color-primary) 0%, #1a252f 100%);
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
   color: var(--color-text-inverse);
+  position: relative;
+}
+
+.slide--title::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 600px;
+  height: 600px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, var(--color-accent-glow) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.slide--title > * {
+  position: relative;
+  z-index: 1;
 }
 
 .slide--title h1 {
@@ -88,15 +107,15 @@ html, body {
 /* Content Slides */
 .slide h2 {
   font-size: 2.2rem;
-  color: var(--color-primary);
+  color: var(--color-text-inverse);
   margin-bottom: 0.8em;
   padding-bottom: 0.3em;
-  border-bottom: 3px solid var(--color-accent);
+  border-bottom: 3px solid #000000;
 }
 
 .slide h3 {
-  font-size: 1.5rem;
-  color: var(--color-primary);
+  font-size: 1.6rem;
+  color: var(--color-accent);
   margin-bottom: 0.5em;
 }
 
@@ -108,8 +127,8 @@ html, body {
 .slide ul li {
   position: relative;
   padding-left: 1.5em;
-  margin-bottom: 0.6em;
-  font-size: 1.3rem;
+  margin-bottom: 0.7em;
+  font-size: 1.45rem;
   line-height: 1.5;
 }
 
@@ -122,21 +141,23 @@ html, body {
 }
 
 .slide p {
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   line-height: 1.6;
   margin-bottom: 0.8em;
 }
 
-/* Code blocks */
+/* Code blocks — Terminal style */
 .slide pre {
   background: var(--color-code-bg);
-  border: 1px solid var(--color-code-border);
+  border: 1px solid #000000;
   border-radius: 8px;
   padding: 1.2em;
   font-family: var(--font-mono);
   font-size: 1rem;
   overflow-x: auto;
   margin: 0.8em 0;
+  color: #67e8f9;
+  box-shadow: inset 0 0 30px rgba(56, 189, 248, 0.04);
 }
 
 .slide code {
@@ -160,13 +181,16 @@ html, body {
   flex: 1;
 }
 
-/* Highlight box */
+/* Highlight box — Glasmorphism */
 .highlight-box {
-  background: linear-gradient(135deg, rgba(52, 152, 219, 0.08), rgba(52, 152, 219, 0.02));
+  background: var(--color-bg-card);
+  backdrop-filter: blur(12px);
+  border: 1px solid #000000;
   border-left: 4px solid var(--color-accent);
   padding: 1em 1.5em;
-  border-radius: 0 8px 8px 0;
+  border-radius: 0 12px 12px 0;
   margin: 0.8em 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 /* Demo slide */
@@ -183,7 +207,7 @@ html, body {
   display: flex;
   border-radius: 8px;
   overflow: hidden;
-  border: 2px solid var(--color-code-border);
+  border: 2px solid #000000;
 }
 
 .demo-container iframe {
@@ -201,6 +225,7 @@ html, body {
   background: var(--color-accent);
   transition: width 0.3s ease;
   z-index: 100;
+  box-shadow: 0 0 10px var(--color-accent-glow);
 }
 
 /* Slide counter */
@@ -224,8 +249,27 @@ html, body {
   justify-content: center;
   align-items: center;
   text-align: center;
-  background: linear-gradient(135deg, var(--color-primary) 0%, #1a252f 100%);
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
   color: var(--color-text-inverse);
+  position: relative;
+}
+
+.slide--end::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 600px;
+  height: 600px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, var(--color-accent-glow) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.slide--end > * {
+  position: relative;
+  z-index: 1;
 }
 
 .slide--end h2 {
@@ -239,6 +283,189 @@ html, body {
   font-size: 2rem;
   margin-right: 0.3em;
   vertical-align: middle;
+}
+
+/* ========================================
+   NEW COMPONENTS — Dark Tech
+   ======================================== */
+
+/* Comparison Table */
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1em 0;
+  font-size: 1.2rem;
+  table-layout: fixed;
+}
+
+.comparison-table th,
+.comparison-table td {
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 1px solid #000000;
+}
+
+.comparison-table th {
+  color: var(--color-accent);
+  font-weight: 600;
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  background: rgba(56, 189, 248, 0.06);
+  border-bottom: 2px solid #000000;
+}
+
+.comparison-table td {
+  color: var(--color-text);
+}
+
+.comparison-table tr:hover td {
+  background: rgba(56, 189, 248, 0.04);
+}
+
+.comparison-table td:first-child {
+  font-weight: 600;
+  color: var(--color-text-inverse);
+}
+
+/* Rating dots */
+.rating {
+  display: inline-flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.rating-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--color-border);
+  transition: background 0.2s;
+}
+
+.rating-dot.filled {
+  background: var(--color-accent);
+  box-shadow: 0 0 6px var(--color-accent-glow);
+}
+
+/* Assessment Grid */
+.assessment-grid {
+  display: grid;
+  grid-template-columns: 1.5fr repeat(4, 1fr);
+  gap: 1px;
+  background: #000000;
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 1em 0;
+}
+
+.assessment-grid > div {
+  padding: 10px 12px;
+  background: var(--color-bg);
+  display: flex;
+  align-items: center;
+}
+
+.assessment-grid > div.grid-header {
+  background: rgba(56, 189, 248, 0.08);
+  color: var(--color-accent);
+  font-weight: 600;
+  font-size: 1.1rem;
+  justify-content: center;
+}
+
+.assessment-grid > div.grid-label {
+  font-weight: 500;
+  font-size: 1.15rem;
+  color: var(--color-text-inverse);
+}
+
+.assessment-grid > div:not(.grid-header):not(.grid-label) {
+  justify-content: center;
+}
+
+/* Stat Callout */
+.stat-callout {
+  display: flex;
+  gap: 40px;
+  margin: 1em 0;
+  flex-wrap: wrap;
+}
+
+.stat-callout > div {
+  flex: 1;
+  min-width: 180px;
+  text-align: center;
+  padding: 24px 16px;
+  background: var(--color-bg-card);
+  backdrop-filter: blur(12px);
+  border: 1px solid #000000;
+  border-radius: 16px;
+}
+
+.stat-number {
+  display: block;
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--color-accent);
+  line-height: 1.1;
+  text-shadow: 0 0 20px var(--color-accent-glow);
+}
+
+.stat-label {
+  display: block;
+  font-size: 1.1rem;
+  color: var(--color-text-light);
+  margin-top: 0.4em;
+}
+
+/* Tags / Badges */
+.tag {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin: 2px;
+}
+
+.tag--accent {
+  background: rgba(56, 189, 248, 0.15);
+  color: var(--color-accent);
+}
+
+.tag--success {
+  background: rgba(34, 197, 94, 0.15);
+  color: var(--color-success);
+}
+
+.tag--warning {
+  background: rgba(245, 158, 11, 0.15);
+  color: var(--color-warning);
+}
+
+.tag--danger {
+  background: rgba(239, 68, 68, 0.15);
+  color: var(--color-danger);
+}
+
+/* Recommendation boxes */
+.recommendation-box {
+  padding: 20px 24px;
+  background: var(--color-bg-card);
+  backdrop-filter: blur(12px);
+  border: 1px solid #000000;
+  border-radius: 12px;
+  margin: 0.5em 0;
+}
+
+.recommendation-box h3 {
+  margin-bottom: 0.3em;
+}
+
+.recommendation-box p {
+  font-size: 1.2rem;
+  margin-bottom: 0;
 }
 
 /* Responsive scaling */

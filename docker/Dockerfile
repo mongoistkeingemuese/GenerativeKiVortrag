@@ -38,7 +38,7 @@ RUN while IFS= read -r ext; do \
       [ -n "$ext" ] && su coder -c "code-server --install-extension $ext" || true; \
     done < /tmp/extensions.txt && rm /tmp/extensions.txt
 
-EXPOSE 8080
+EXPOSE 8080 8443
 
 ENTRYPOINT []
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/rex.conf"]

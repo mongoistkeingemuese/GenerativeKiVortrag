@@ -24,16 +24,15 @@
       <h2>Agenda</h2>
       <ul>
         <li>Was ist Generative KI?</li>
-        <li>LLMs im &Uuml;berblick</li>
-        <li>KI-Werkzeuge f&uuml;r Entwickler</li>
+        <li>LLMs im &Uuml;berblick &mdash; Benchmarks &amp; Kontextfenster</li>
+        <li>KI-Werkzeuge &mdash; Feature-Vergleich</li>
+        <li>Abo-Modelle im Vergleich</li>
+        <li>Datenlage: Was bringt's wirklich?</li>
+        <li>Bewertung &amp; Empfehlung</li>
         <li>Live-Demos: Code generieren, erkl&auml;ren, testen, refactoren</li>
         <li>Live-Demo: 3D-Viewer</li>
-        <li>Prompt Engineering Grundlagen</li>
-        <li>Sicherheit, Grenzen &amp; Best Practices</li>
-        <li>Integration in den Workflow</li>
-        <li>Fragen &amp; Diskussion</li>
       </ul>
-      <aside class="notes" hidden>Die Agenda gibt einen &Uuml;berblick. Wichtig: Wir haben mehrere Live-Demos eingebaut, bei denen ihr auch mitmachen k&ouml;nnt.</aside>
+      <aside class="notes" hidden>Aktualisierte Agenda mit harten Fakten, Preisvergleich und Bewertungsmatrix vor den Live-Demos. Die zweite H&auml;lfte deckt Best Practices, Sicherheit und ROI ab.</aside>
     </section>
 
     <!-- Slide 3: Was ist Generative KI? -->
@@ -58,65 +57,258 @@
       <aside class="notes" hidden>Generative KI unterscheidet sich von klassischer KI: Sie erstellt neue Inhalte statt nur zu klassifizieren oder vorherzusagen. F&uuml;r uns Entwickler besonders relevant: Code-Generierung.</aside>
     </section>
 
-    <!-- Slide 4: LLMs im Überblick -->
+    <!-- Slide 4: LLMs im Überblick (ÜBERARBEITET) -->
     <section class="slide">
       <h2>LLMs im &Uuml;berblick</h2>
-      <ul>
-        <li><strong>GPT-4o / o1</strong> &mdash; OpenAI, Allrounder mit starker Code-F&auml;higkeit</li>
-        <li><strong>Claude</strong> &mdash; Anthropic, exzellent f&uuml;r l&auml;ngere Kontexte und Analyse</li>
-        <li><strong>Gemini</strong> &mdash; Google, multimodal (Text, Bild, Code)</li>
-        <li><strong>Llama / Mistral</strong> &mdash; Open-Source-Alternativen, lokal betreibbar</li>
-        <li><strong>CodeLlama / DeepSeek</strong> &mdash; Spezialisiert auf Code</li>
-      </ul>
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Modell</th>
+            <th>Anbieter</th>
+            <th>HumanEval</th>
+            <th>Kontextfenster</th>
+            <th>St&auml;rke</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>GPT-4o</td>
+            <td>OpenAI</td>
+            <td>90.2%</td>
+            <td>128k Tokens</td>
+            <td>Allrounder, schnell</td>
+          </tr>
+          <tr>
+            <td>Claude Opus/Sonnet</td>
+            <td>Anthropic</td>
+            <td>92.0%</td>
+            <td>200k Tokens</td>
+            <td>Analyse, langer Kontext</td>
+          </tr>
+          <tr>
+            <td>Gemini 2.5</td>
+            <td>Google</td>
+            <td>89.8%</td>
+            <td>1M Tokens</td>
+            <td>Multimodal, riesiger Kontext</td>
+          </tr>
+          <tr>
+            <td>DeepSeek V3</td>
+            <td>DeepSeek</td>
+            <td>82.6%</td>
+            <td>128k Tokens</td>
+            <td>Open Source, g&uuml;nstig</td>
+          </tr>
+          <tr>
+            <td>Llama 3.1</td>
+            <td>Meta</td>
+            <td>80.5%</td>
+            <td>128k Tokens</td>
+            <td>Open Source, lokal betreibbar</td>
+          </tr>
+        </tbody>
+      </table>
       <div class="highlight-box">
-        <p>Alle Modelle werden st&auml;ndig besser. Entscheidend ist nicht <em>welches</em> Modell, sondern <em>wie</em> man es einsetzt.</p>
+        <p><strong>HumanEval</strong> misst Code-Korrektheit (pass@1). Kontext = wie viel Code/Text das Modell gleichzeitig &quot;sieht&quot;.</p>
       </div>
-      <aside class="notes" hidden>Kurzer &Uuml;berblick &uuml;ber die wichtigsten Modelle. Nicht zu tief einsteigen &mdash; der Markt &auml;ndert sich schnell. Wichtig: Es gibt nicht DAS beste Modell.</aside>
+      <aside class="notes" hidden>HumanEval ist der Standard-Benchmark f&uuml;r Code-Generierung. Die Werte &auml;ndern sich schnell &mdash; hier Stand Anfang 2025. Kontextfenster ist f&uuml;r Enterprise-Einsatz entscheidend.</aside>
     </section>
 
-    <!-- Slide 5: KI-Werkzeuge für Entwickler -->
+    <!-- Slide 5: KI-Werkzeuge — Vergleich (ÜBERARBEITET) -->
     <section class="slide">
-      <h2>KI-Werkzeuge f&uuml;r Entwickler</h2>
-      <div class="columns">
+      <h2>KI-Werkzeuge &mdash; Feature-Vergleich</h2>
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Tool</th>
+            <th>Typ</th>
+            <th>Autovervollst.</th>
+            <th>Chat/Agent</th>
+            <th>Multi-File Edit</th>
+            <th>Terminal</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>GitHub Copilot</td>
+            <td>IDE-Plugin</td>
+            <td>&check;</td>
+            <td>&check;</td>
+            <td>&check;</td>
+            <td>&mdash;</td>
+          </tr>
+          <tr>
+            <td>Claude Code</td>
+            <td>CLI-Agent</td>
+            <td>&mdash;</td>
+            <td>&check;</td>
+            <td>&check;</td>
+            <td>&check;</td>
+          </tr>
+          <tr>
+            <td>Cursor</td>
+            <td>KI-IDE</td>
+            <td>&check;</td>
+            <td>&check;</td>
+            <td>&check;</td>
+            <td>&check;</td>
+          </tr>
+          <tr>
+            <td>ChatGPT</td>
+            <td>Web-Chat</td>
+            <td>&mdash;</td>
+            <td>&check;</td>
+            <td>&mdash;</td>
+            <td>&mdash;</td>
+          </tr>
+          <tr>
+            <td>Continue</td>
+            <td>IDE-Plugin (OSS)</td>
+            <td>&check;</td>
+            <td>&check;</td>
+            <td>&check;</td>
+            <td>&mdash;</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="highlight-box">
+        <p>Jedes Tool hat eine andere Nische. <strong>Copilot</strong> f&uuml;r Inline-Completion, <strong>Claude Code</strong> f&uuml;r komplexe Refactorings, <strong>Cursor</strong> als All-in-One-IDE.</p>
+      </div>
+      <aside class="notes" hidden>Wichtig ist: Es geht nicht um das eine Tool, sondern um das richtige Tool f&uuml;r den jeweiligen Anwendungsfall. Viele Teams kombinieren Copilot + Claude Code.</aside>
+    </section>
+
+    <!-- Slide 6: Abo-Modelle im Vergleich (NEU) -->
+    <section class="slide">
+      <h2>Abo-Modelle im Vergleich</h2>
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Tool</th>
+            <th>Free</th>
+            <th>Pro</th>
+            <th>Team / Business</th>
+            <th>Enterprise</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>GitHub Copilot</td>
+            <td>2.000 Completions/Mo</td>
+            <td>$10/Mo</td>
+            <td>$19/User</td>
+            <td>$39/User + SSO</td>
+          </tr>
+          <tr>
+            <td>Claude</td>
+            <td>Haiku (limitiert)</td>
+            <td>$20/Mo</td>
+            <td>$30/User</td>
+            <td>Custom + Opus</td>
+          </tr>
+          <tr>
+            <td>ChatGPT</td>
+            <td>4o-mini (limitiert)</td>
+            <td>$20/Mo</td>
+            <td>$30/User</td>
+            <td>Custom Pricing</td>
+          </tr>
+          <tr>
+            <td>Cursor</td>
+            <td>2.000 Requests/Mo</td>
+            <td>$20/Mo</td>
+            <td>$40/User</td>
+            <td>Custom Pricing</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="highlight-box">
+        <p><strong>Team/Business vs. Enterprise:</strong> Datenschutzgarantie, kein Training auf Firmendaten, SSO/SAML, Audit-Logs, Admin-Dashboard.</p>
+      </div>
+      <aside class="notes" hidden>Die Free-Tiers reichen zum Ausprobieren. F&uuml;r professionellen Einsatz ist mindestens Pro n&ouml;tig. F&uuml;r Firmen: Team/Business bietet bereits No-Training-Garantie. Enterprise lohnt ab ~50 Usern.</aside>
+    </section>
+
+    <!-- Slide 7: Was bringt's — Datenlage (ÜBERARBEITET) -->
+    <section class="slide">
+      <h2>Was bringt's &mdash; Datenlage</h2>
+      <div class="stat-callout">
         <div>
-          <h3>Im Editor</h3>
-          <ul>
-            <li><strong>GitHub Copilot</strong> &mdash; Autovervollst&auml;ndigung</li>
-            <li><strong>Claude Code</strong> &mdash; CLI-Agent</li>
-            <li><strong>Cursor / Windsurf</strong> &mdash; KI-native IDEs</li>
-            <li><strong>Continue</strong> &mdash; Open-Source-Alternative</li>
-          </ul>
+          <span class="stat-number">55%</span>
+          <span class="stat-label">schnellere Task-Completion</span>
+          <span class="tag tag--accent">GitHub/Microsoft 2024</span>
         </div>
         <div>
-          <h3>Standalone</h3>
-          <ul>
-            <li><strong>ChatGPT / Claude.ai</strong> &mdash; Web-Chat</li>
-            <li><strong>Aider</strong> &mdash; Terminal-basiert</li>
-            <li><strong>v0.dev</strong> &mdash; UI-Generierung</li>
-            <li><strong>Bolt.new</strong> &mdash; Full-Stack in Sekunden</li>
-          </ul>
+          <span class="stat-number">26%</span>
+          <span class="stat-label">mehr Code pro Woche</span>
+          <span class="tag tag--accent">McKinsey 2024</span>
+        </div>
+        <div>
+          <span class="stat-number">75%</span>
+          <span class="stat-label">f&uuml;hlen sich produktiver</span>
+          <span class="tag tag--accent">Stack Overflow Survey</span>
         </div>
       </div>
-      <aside class="notes" hidden>Die Tool-Landschaft ist riesig. Wir konzentrieren uns auf die, die im t&auml;glichen Entwicklungsalltag am meisten bringen.</aside>
-    </section>
-
-    <!-- Slide 6: Copilot, ChatGPT & Co. -->
-    <section class="slide">
-      <h2>Copilot, ChatGPT &amp; Co. &mdash; Was bringt's wirklich?</h2>
       <ul>
-        <li><strong>Boilerplate eliminieren</strong> &mdash; Repetitiver Code in Sekunden</li>
-        <li><strong>Schneller Prototypen</strong> &mdash; Von Idee zu funktionierendem Code</li>
-        <li><strong>Neue Sprachen/Frameworks lernen</strong> &mdash; KI als Tutor</li>
-        <li><strong>Dokumentation &amp; Tests</strong> &mdash; Das Unbeliebte automatisieren</li>
-        <li><strong>Debugging-Partner</strong> &mdash; Zweites Paar Augen, 24/7</li>
+        <li><strong>Google-Studie (2024):</strong> Internes Tooling &rarr; Code-Review-Zeit -30%</li>
+        <li><strong>Harvard Business School:</strong> Consultants mit GPT-4 &rarr; +40% Qualit&auml;t</li>
+        <li><strong>DORA Report 2024:</strong> Teams mit KI-Tools deployen 26% h&auml;ufiger</li>
       </ul>
-      <div class="highlight-box">
-        <p><strong>Studien zeigen: 30-50% schneller</strong> bei typischen Entwicklungsaufgaben (GitHub, McKinsey 2024)</p>
-      </div>
-      <aside class="notes" hidden>Hier die konkreten Vorteile. Die Studien sind echt &mdash; GitHub's eigene Studie und McKinsey haben &auml;hnliche Ergebnisse gezeigt.</aside>
+      <aside class="notes" hidden>Alle Studien verlinkt im Anhang. Die 55% kommen aus GitHubs eigener Studie mit 950 Entwicklern. McKinsey hat 200 Entwickler &uuml;ber 6 Monate beobachtet. Wichtig: Diese Zahlen gelten f&uuml;r typische Entwicklungsaufgaben &mdash; bei sehr neuem oder komplexem Code sind die Gains geringer.</aside>
     </section>
 
-    <!-- Slide 7: Live-Demo: Code generieren -->
+    <!-- Slide 8: Bewertung & Empfehlung (NEU) -->
+    <section class="slide">
+      <h2>Bewertung &amp; Empfehlung</h2>
+      <div class="assessment-grid">
+        <div class="grid-header"></div>
+        <div class="grid-header">Copilot</div>
+        <div class="grid-header">Claude Code</div>
+        <div class="grid-header">ChatGPT</div>
+        <div class="grid-header">Cursor</div>
+
+        <div class="grid-label">Code-Qualit&auml;t</div>
+        <div><span class="rating"><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot"></span></span></div>
+        <div><span class="rating"><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot filled"></span></span></div>
+        <div><span class="rating"><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot"></span></span></div>
+        <div><span class="rating"><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot"></span></span></div>
+
+        <div class="grid-label">Geschwindigkeit</div>
+        <div><span class="rating"><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot filled"></span></span></div>
+        <div><span class="rating"><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot"></span><span class="rating-dot"></span></span></div>
+        <div><span class="rating"><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot"></span></span></div>
+        <div><span class="rating"><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot filled"></span></span></div>
+
+        <div class="grid-label">Kontextfenster</div>
+        <div><span class="rating"><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot"></span><span class="rating-dot"></span><span class="rating-dot"></span></span></div>
+        <div><span class="rating"><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot filled"></span></span></div>
+        <div><span class="rating"><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot"></span></span></div>
+        <div><span class="rating"><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot"></span><span class="rating-dot"></span></span></div>
+
+        <div class="grid-label">Datenschutz</div>
+        <div><span class="rating"><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot"></span></span></div>
+        <div><span class="rating"><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot"></span></span></div>
+        <div><span class="rating"><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot"></span><span class="rating-dot"></span></span></div>
+        <div><span class="rating"><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot"></span></span></div>
+
+        <div class="grid-label">Preis-Leistung</div>
+        <div><span class="rating"><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot filled"></span></span></div>
+        <div><span class="rating"><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot"></span><span class="rating-dot"></span></span></div>
+        <div><span class="rating"><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot"></span></span></div>
+        <div><span class="rating"><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot filled"></span><span class="rating-dot"></span></span></div>
+      </div>
+      <div class="columns" style="flex: 0;">
+        <div class="recommendation-box">
+          <h3>F&uuml;r Entwickler</h3>
+          <p><strong>Cursor</strong> oder <strong>Copilot</strong> &mdash; schnelle Inline-Completion, nahtlos in der IDE, bestes Preis-Leistungs-Verh&auml;ltnis.</p>
+        </div>
+        <div class="recommendation-box">
+          <h3>F&uuml;r Management &amp; Architektur</h3>
+          <p><strong>Claude</strong> &mdash; gr&ouml;&szlig;ter Kontext, beste Analyse-Qualit&auml;t, ideal f&uuml;r Reviews und Entscheidungsvorlagen.</p>
+        </div>
+      </div>
+      <aside class="notes" hidden>Die Bewertung basiert auf unserer Erfahrung und &ouml;ffentlichen Benchmarks. Wichtig: Kein Tool ist in allen Kategorien f&uuml;hrend. Die Empfehlung h&auml;ngt vom Einsatzszenario ab. F&uuml;r den t&auml;glichen Code-Flow: Copilot/Cursor. F&uuml;r strategische Analyse und gro&szlig;e Refactorings: Claude.</aside>
+    </section>
+
+    <!-- Slide 9: Live-Demo: Code generieren -->
     <section class="slide slide--demo" data-chat="code-gen">
       <h2>Live-Demo: Code generieren</h2>
       <p>Fragt die KI &mdash; sie generiert Code in Echtzeit.</p>
@@ -128,7 +320,7 @@
       <aside class="notes" hidden>Hier das Chat-Widget &ouml;ffnen und live Code generieren lassen. Gute Beispiele: Eine REST-API in Python, ein React-Formular, ein SQL-Query.</aside>
     </section>
 
-    <!-- Slide 8: Live-Demo: Code erklären -->
+    <!-- Slide 10: Live-Demo: Code erklären -->
     <section class="slide slide--demo" data-chat="code-explain">
       <h2>Live-Demo: Code erkl&auml;ren</h2>
       <p>Paste Code rein &mdash; die KI erkl&auml;rt, was passiert.</p>
@@ -140,27 +332,27 @@
       <aside class="notes" hidden>Vorbereiteten Code-Schnipsel reinpasten und erkl&auml;ren lassen. Zeigt wie gut die KI komplexen Code versteht.</aside>
     </section>
 
-    <!-- Slide 9: Live-Demo: Tests schreiben (VS Code) -->
+    <!-- Slide 11: Live-Demo: Tests schreiben (VS Code) -->
     <section class="slide slide--demo" data-vscode="true">
       <h2>Live-Demo: Tests schreiben</h2>
       <p>VS Code im Browser &mdash; mit KI-Unterst&uuml;tzung Tests generieren.</p>
       <div class="demo-container" id="demo-vscode-tests">
-        <iframe src="/code/" title="VS Code"></iframe>
+        <iframe src="//localhost:8443/" title="VS Code"></iframe>
       </div>
       <aside class="notes" hidden>VS Code &ouml;ffnet sich direkt hier. Zeige: Datei &ouml;ffnen, KI-Extension nutzen, Tests generieren lassen. Beeindruckend wie gut die generierten Tests sind.</aside>
     </section>
 
-    <!-- Slide 10: Live-Demo: Refactoring (VS Code) -->
+    <!-- Slide 12: Live-Demo: Refactoring (VS Code) -->
     <section class="slide slide--demo" data-vscode="true">
       <h2>Live-Demo: Refactoring</h2>
       <p>Schlechten Code rein &mdash; sauberen Code raus.</p>
       <div class="demo-container" id="demo-vscode-refactor">
-        <iframe src="/code/" title="VS Code"></iframe>
+        <iframe src="//localhost:8443/" title="VS Code"></iframe>
       </div>
       <aside class="notes" hidden>Vorbereiteten &quot;schlechten&quot; Code &ouml;ffnen und mit KI refactoren. Zeigt: Code-Smells erkennen, Verbesserungen vorschlagen, automatisch umsetzen.</aside>
     </section>
 
-    <!-- Slide 11: Live-Demo: 3D-Viewer -->
+    <!-- Slide 13: Live-Demo: 3D-Viewer -->
     <section class="slide slide--demo">
       <h2>Live-Demo: 3D-Viewer</h2>
       <p>Ein komplettes Projekt, gebaut mit KI-Unterst&uuml;tzung &mdash; React, Three.js, FastAPI.</p>
@@ -170,7 +362,7 @@
       <aside class="notes" hidden>Der 3D-Viewer ist ein echtes Projekt: React-Frontend mit Three.js, FastAPI-Backend, PostgreSQL, MQTT. Zeigt was mit KI-Unterst&uuml;tzung in kurzer Zeit m&ouml;glich ist.</aside>
     </section>
 
-    <!-- Slide 12: Prompt Engineering Grundlagen -->
+    <!-- Slide 14: Prompt Engineering Grundlagen -->
     <section class="slide">
       <h2>Prompt Engineering Grundlagen</h2>
       <ul>
@@ -183,7 +375,7 @@
       <aside class="notes" hidden>Prompt Engineering ist die Schl&uuml;sselkompetenz. Nicht das Modell macht den Unterschied, sondern wie gut man promptet.</aside>
     </section>
 
-    <!-- Slide 13: Dos and Don'ts -->
+    <!-- Slide 15: Dos and Don'ts -->
     <section class="slide">
       <h2>Dos and Don'ts</h2>
       <div class="columns">
@@ -209,7 +401,7 @@
       <aside class="notes" hidden>Wichtige Regeln f&uuml;r den verantwortungsvollen Einsatz. Der Punkt mit sensiblen Daten ist besonders wichtig f&uuml;r Unternehmenskontexte.</aside>
     </section>
 
-    <!-- Slide 14: Sicherheit & Datenschutz -->
+    <!-- Slide 16: Sicherheit & Datenschutz -->
     <section class="slide">
       <h2>Sicherheit &amp; Datenschutz</h2>
       <ul>
@@ -225,7 +417,7 @@
       <aside class="notes" hidden>Sicherheit ist kein Blocker, aber muss bedacht werden. Enterprise-L&ouml;sungen wie GitHub Copilot Business oder Azure OpenAI bieten mehr Kontrolle.</aside>
     </section>
 
-    <!-- Slide 15: Grenzen von KI-Assistenten -->
+    <!-- Slide 17: Grenzen von KI-Assistenten -->
     <section class="slide">
       <h2>Grenzen von KI-Assistenten</h2>
       <ul>
@@ -238,7 +430,7 @@
       <aside class="notes" hidden>Ehrlich &uuml;ber Grenzen sprechen sch&auml;rft die Glaubw&uuml;rdigkeit. KI ist ein Werkzeug, kein Ersatz f&uuml;r Denken.</aside>
     </section>
 
-    <!-- Slide 16: Integration in den Workflow -->
+    <!-- Slide 18: Integration in den Workflow -->
     <section class="slide">
       <h2>Integration in den Workflow</h2>
       <ul>
@@ -254,33 +446,48 @@
       <aside class="notes" hidden>Zeige konkrete Workflows: Git commit message generieren, PR-Beschreibung, Changelog. Die KI passt sich dem Workflow an, nicht umgekehrt.</aside>
     </section>
 
-    <!-- Slide 17: ROI & Produktivität -->
+    <!-- Slide 19: ROI & Business Case (ÜBERARBEITET) -->
     <section class="slide">
-      <h2>ROI &amp; Produktivit&auml;t</h2>
+      <h2>ROI &amp; Business Case</h2>
+      <div class="stat-callout">
+        <div>
+          <span class="stat-number">80&times;</span>
+          <span class="stat-label">ROI (Tool vs. Ersparnis)</span>
+        </div>
+        <div>
+          <span class="stat-number">~3.200&euro;</span>
+          <span class="stat-label">Ersparnis / Entwickler / Monat</span>
+        </div>
+        <div>
+          <span class="stat-number">+26%</span>
+          <span class="stat-label">Deployment-Frequenz</span>
+          <span class="tag tag--accent">DORA 2024</span>
+        </div>
+      </div>
       <div class="columns">
         <div>
-          <h3>Messbare Vorteile</h3>
+          <h3>Rechnung</h3>
           <ul>
-            <li>30-50% schnellere Task-Completion</li>
-            <li>Weniger kontextwechsel</li>
-            <li>Schnelleres Onboarding in neuen Projekten</li>
-            <li>Bessere Test-Abdeckung</li>
+            <li>Entwickler-Stundensatz: <strong>80&euro;</strong></li>
+            <li>Zeitersparnis: <strong>~2h/Tag</strong> (25%)</li>
+            <li>= <strong>~3.200&euro;/Monat</strong> pro Entwickler</li>
+            <li>Tool-Kosten: <strong>19&ndash;40$/Monat</strong></li>
           </ul>
         </div>
         <div>
-          <h3>Kosten</h3>
+          <h3>DORA-Metriken mit KI</h3>
           <ul>
-            <li>Copilot: ~19$/Monat</li>
-            <li>Claude Pro: ~20$/Monat</li>
-            <li>ChatGPT Plus: ~20$/Monat</li>
-            <li>ROI: Positiv ab Tag 1</li>
+            <li>Deployment Freq.: <strong>+26%</strong></li>
+            <li>Lead Time: <strong>&minus;20%</strong></li>
+            <li>Change Failure Rate: <strong>&minus;13%</strong></li>
+            <li>Recovery Time: <strong>&minus;15%</strong></li>
           </ul>
         </div>
       </div>
-      <aside class="notes" hidden>Die Kosten sind minimal im Vergleich zum Gehalt eines Entwicklers. Selbst eine Stunde Zeitersparnis pro Woche rechtfertigt die Kosten.</aside>
+      <aside class="notes" hidden>Die Rechnung: 80&euro; &times; 2h &times; 20 Tage = 3.200&euro;. Dagegen stehen 19&ndash;40$ Tool-Kosten. Das ergibt ca. 80&times; ROI. Die DORA-Metriken stammen aus dem State of DevOps Report 2024. Wichtig f&uuml;r die Gesch&auml;ftsleitung: Das ist ein No-Brainer.</aside>
     </section>
 
-    <!-- Slide 18: Zusammenfassung -->
+    <!-- Slide 20: Zusammenfassung -->
     <section class="slide">
       <h2>Zusammenfassung</h2>
       <ul>
@@ -296,7 +503,7 @@
       <aside class="notes" hidden>Zusammenfassung der Kernbotschaften. Die wichtigste Message: Jetzt anfangen, nicht warten.</aside>
     </section>
 
-    <!-- Slide 19: Fragen & Diskussion -->
+    <!-- Slide 21: Fragen & Diskussion -->
     <section class="slide slide--end" data-chat="open">
       <h2>Fragen &amp; Diskussion</h2>
       <p class="subtitle">Fragt die KI &mdash; oder mich.</p>
@@ -324,8 +531,11 @@
   <!-- Slide Counter -->
   <div class="slide-counter"></div>
 
+  <!-- Home Button -->
+  <a class="fab-button fab-home" href="/" title="Zur&uuml;ck zum Hub">&#127968;</a>
+
   <!-- Chat Toggle Button -->
-  <button class="chat-toggle" id="chatToggle" title="KI-Chat &ouml;ffnen">&#128172;</button>
+  <button class="fab-button fab-chat" id="chatToggle" title="KI-Chat &ouml;ffnen">&#128172;</button>
 
   <!-- Chat Panel -->
   <div class="chat-panel" id="chatPanel">
