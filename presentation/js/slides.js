@@ -21,17 +21,19 @@ class SlideEngine {
     if (index < 0 || index >= this.total || index === this.current) return;
 
     const direction = index > this.current ? 'forward' : 'backward';
-    const prev = this.slides[this.current];
-    const next = this.slides[index];
+    const leaving = this.slides[this.current];
+    const entering = this.slides[index];
 
-    prev.classList.remove('active');
-    if (direction === 'forward') {
-      prev.classList.add('prev');
-      setTimeout(() => prev.classList.remove('prev'), 400);
-    }
+    // New slide appears immediately on top
+    entering.classList.add('active');
+
+    // Old slide fades out underneath
+    leaving.classList.remove('active');
+    const exitClass = direction === 'forward' ? 'exit-forward' : 'exit-backward';
+    leaving.classList.add(exitClass);
+    setTimeout(() => leaving.classList.remove(exitClass), 300);
 
     this.current = index;
-    next.classList.add('active');
 
     this._update();
     this._broadcast();
