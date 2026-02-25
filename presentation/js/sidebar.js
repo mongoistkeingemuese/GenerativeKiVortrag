@@ -8,7 +8,7 @@ class Sidebar {
 
     this._buildList();
     this._bind();
-    this._updateActive();
+    this.updateActive();
   }
 
   _buildList() {
@@ -36,32 +36,20 @@ class Sidebar {
   }
 
   _bind() {
-    // Hover trigger at left edge
     this.trigger.addEventListener('mouseenter', () => this.open());
     this.sidebar.addEventListener('mouseleave', (e) => {
-      // Only close if mouse leaves to the right (not into trigger)
       if (e.clientX > 320) this.close();
     });
 
-    // Close on Escape
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && this.isOpen) this.close();
     });
-
-    // Update active on slide change
-    const origGoTo = this.engine.goTo.bind(this.engine);
-    const self = this;
-    const currentGoTo = this.engine.goTo;
-    this.engine.goTo = function(index) {
-      currentGoTo.call(this, index);
-      self._updateActive();
-    };
   }
 
   open() {
     this.sidebar.classList.add('open');
     this.isOpen = true;
-    this._updateActive();
+    this.updateActive();
   }
 
   close() {
@@ -69,12 +57,11 @@ class Sidebar {
     this.isOpen = false;
   }
 
-  _updateActive() {
+  updateActive() {
     const links = this.list.querySelectorAll('a');
     links.forEach((a, i) => {
       a.classList.toggle('active', i === this.engine.current);
     });
-    // Scroll active into view
     const active = this.list.querySelector('a.active');
     if (active) active.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
   }

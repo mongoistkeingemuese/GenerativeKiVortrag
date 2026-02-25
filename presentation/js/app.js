@@ -12,17 +12,17 @@ document.addEventListener('DOMContentLoaded', () => {
   const chat = new ChatWidget();
   const sidebar = new Sidebar(engine);
 
-  // Update chat context when slide changes
-  const originalGoTo = engine.goTo.bind(engine);
-  engine.goTo = (index) => {
-    originalGoTo(index);
-    const slide = engine.slides[index];
-    const context = slide?.dataset.chat;
+  // React to slide changes
+  engine.onChange((index, slide) => {
+    // Update chat context on demo slides
+    const context = slide.dataset.chat;
     if (context) {
       chat.setContext(context);
       chat.open();
     }
-  };
+    // Update sidebar
+    sidebar.updateActive();
+  });
 
   // Expose for debugging
   window.rex = { engine, chat, sidebar };
