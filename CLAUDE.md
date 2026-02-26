@@ -2,7 +2,7 @@
 
 ## Projektkontext
 
-Interaktive Präsentationswebsite "Generative KI im Programmieralltag" — eine Website, die selbst als Demo dient. Folien zum Durchklicken mit eingebetteten Live-Demos (LLM-Chat, VS Code im Browser, 3D-Viewer). Alles läuft als Docker-Compose-Setup.
+Interaktive Präsentationswebsite "Generative KI im Programmieralltag" — eine Website, die selbst als Demo dient. Folien zum Durchklicken mit eingebettetem LLM-Chat. Alles läuft als Docker-Compose-Setup.
 
 ## Rollen
 
@@ -30,16 +30,13 @@ Interaktive Präsentationswebsite "Generative KI im Programmieralltag" — eine 
 ## Architektur
 
 ### Docker-Compose-Setup
-- **rex** Container: Präsentation (nginx) + LLM-Backend (Express/Node.js) + code-server (VS Code)
-- **viewer-*** Container: 3D-Viewer aus `../3DViewer/` (Frontend, Backend, PostgreSQL, MQTT)
+- **rex** Container: Präsentation (nginx) + LLM-Backend (Express/Node.js)
 
 ### Ports
 | Service | Port | URL |
 |---------|------|-----|
 | Präsentation | 8080 | http://localhost:8080 |
 | LLM-API | 8080 | http://localhost:8080/api/ |
-| VS Code | 8080 | http://localhost:8080/code/ |
-| 3D-Viewer | 5174 | http://localhost:5174 |
 
 ### Kommandos
 ```bash
@@ -58,8 +55,6 @@ backend/          → Express.js LLM-Proxy (server.js, routes/llm.js)
 presentation/     → HTML/CSS/JS Slide-Engine + Folieninhalte
   css/            → slides.css, theme.css, components.css
   js/             → app.js, slides.js, keyboard.js, chat.js, presenter.js
-code-server/      → VS Code Einstellungen + Extensions
-demo-workspace/   → Vorbereitete Code-Beispiele für Live-Demos
 ```
 
 ## LLM-Konfiguration

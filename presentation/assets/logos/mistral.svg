@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <!-- Mistral's distinctive colored bars pattern -->
+  <rect x="3" y="4" width="5" height="5" fill="#F7D046"/>
+  <rect x="13.5" y="4" width="5" height="5" fill="#F7D046"/>
+  <rect x="24" y="4" width="5" height="5" fill="#F7D046"/>
+  <rect x="3" y="10.5" width="5" height="5" fill="#F7D046"/>
+  <rect x="8" y="10.5" width="5" height="5" fill="#F2A73B"/>
+  <rect x="13.5" y="10.5" width="5" height="5" fill="#F2A73B"/>
+  <rect x="24" y="10.5" width="5" height="5" fill="#F7D046"/>
+  <rect x="3" y="17" width="5" height="5" fill="#F7D046"/>
+  <rect x="13.5" y="17" width="5" height="5" fill="#EF7C31"/>
+  <rect x="19" y="17" width="5" height="5" fill="#EE6B2D"/>
+  <rect x="24" y="17" width="5" height="5" fill="#F7D046"/>
+  <rect x="3" y="23.5" width="5" height="5" fill="#F7D046"/>
+  <rect x="13.5" y="23.5" width="5" height="5" fill="#F7D046"/>
+  <rect x="24" y="23.5" width="5" height="5" fill="#F7D046"/>
+</svg>

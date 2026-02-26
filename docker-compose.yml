@@ -1,6 +1,6 @@
 services:
   # ============================================
-  # Stack 1: Presentation + code-server + LLM Backend
+  # Stack 1: Presentation + LLM Backend
   # ============================================
   rex:
     build:
@@ -10,7 +10,6 @@ services:
     restart: unless-stopped
     ports:
       - "8080:8080"
-      - "8443:8443"
     environment:
       - LLM_PROVIDER=${LLM_PROVIDER:-openai}
       - LLM_API_URL=${LLM_API_URL:-https://api.openai.com/v1}
@@ -18,84 +17,8 @@ services:
       - LLM_MODEL=${LLM_MODEL:-gpt-4o}
       - LLM_MAX_TOKENS=${LLM_MAX_TOKENS:-2048}
       - LLM_TEMPERATURE=${LLM_TEMPERATURE:-0.7}
-      - CODE_SERVER_PASSWORD=${CODE_SERVER_PASSWORD:-rex}
-    volumes:
-      - ./demo-workspace:/home/coder/project
     networks:
       - rex-network
-
-  # ============================================
-  # Stack 2: 3D-Viewer (from local project)
-  # ============================================
-  viewer-db:
-    image: postgres:15-alpine
-    container_name: rex-viewer-db
-    restart: unless-stopped
-    environment:
-      POSTGRES_USER: ${POSTGRES_USER:-app}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-app_password}
-      POSTGRES_DB: ${POSTGRES_DB:-machine_viewer}
-    volumes:
-      - viewer_postgres_data:/var/lib/postgresql/data
-    networks:
-      - rex-network
-
-  viewer-backend:
-    build:
-      context: ../3DViewer/backend
-      dockerfile: Dockerfile
-    container_name: rex-viewer-backend
-    restart: unless-stopped
-    command: sh -c "git config --global --add safe.directory /app/data/git-backup && uvicorn src.main:app --host 0.0.0.0 --port 8000 --reload"
-    volumes:
-      - ../3DViewer/backend:/app
-      - viewer_stl_assets:/app/data/stls
-      - ../3DViewer/backend/data/git-backup:/app/data/git-backup
-      - ../3DViewer/backend/data/license:/app/data/license
-      - /sys/class/net:/host/net:ro
-    environment:
-      DATABASE_URL: postgresql+asyncpg://${POSTGRES_USER:-app}:${POSTGRES_PASSWORD:-app_password}@viewer-db:5432/${POSTGRES_DB:-machine_viewer}
-      MQTT_BROKER_HOST: viewer-mosquitto
-      MQTT_BROKER_PORT: "1883"
-      HOST_MAC_ADDRESS: ${HOST_MAC_ADDRESS:-}
-    depends_on:
-      - viewer-db
-    networks:
-      rex-network:
-        aliases:
-          - backend
-
-  viewer-frontend:
-    build:
-      context: ../3DViewer/frontend
-      dockerfile: Dockerfile
-    container_name: rex-viewer-frontend
-    restart: unless-stopped
-    ports:
-      - "5174:5173"
-    environment:
-      - VITE_API_URL=/api/v1
-    volumes:
-      - ../3DViewer/frontend:/app
-      - /app/node_modules
-    networks:
-      - rex-network
-
-  viewer-mosquitto:
-    image: eclipse-mosquitto:2
-    container_name: rex-viewer-mosquitto
-    restart: unless-stopped
-    ports:
-      - "1883:1883"
-      - "9001:9001"
-    volumes:
-      - ./docker/mosquitto.conf:/mosquitto/config/mosquitto.conf:ro
-    networks:
-      - rex-network
-
-volumes:
-  viewer_postgres_data:
-  viewer_stl_assets:
 
 networks:
   rex-network:
