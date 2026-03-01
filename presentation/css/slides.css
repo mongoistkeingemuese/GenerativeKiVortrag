@@ -284,6 +284,23 @@ html, body {
   margin-top: 16px;
 }
 
+/* Fly-in animation for highlight boxes */
+.fly-in {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.slide.active .fly-in {
+  animation: flyInUp 0.5s ease-out forwards;
+}
+
+@keyframes flyInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Demo slide */
 .slide--demo {
   padding: 40px;
