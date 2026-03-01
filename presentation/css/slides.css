@@ -13,6 +13,13 @@ html, body {
   background: var(--color-bg-dark);
 }
 
+/* ========================================
+   3-ZONE SLIDE BLUEPRINT
+   Zone 1: Headline  (auto — shrink to fit)
+   Zone 2: Body      (1fr  — fills remaining)
+   Zone 3: Learning  (auto — collapses to 0 when absent)
+   ======================================== */
+
 /* Slide Container */
 .slide-deck {
   position: relative;
@@ -21,7 +28,7 @@ html, body {
   overflow: hidden;
 }
 
-/* Individual Slide */
+/* Individual Slide — flex column, top-aligned */
 .slide {
   position: absolute;
   top: 0;
@@ -30,8 +37,7 @@ html, body {
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 60px 80px;
+  padding: 50px 80px 30px;
   background: var(--color-bg-gradient, var(--color-bg));
   opacity: 0;
   pointer-events: none;
@@ -57,7 +63,48 @@ html, body {
   transition: opacity 0.3s ease;
 }
 
-/* Slide Types */
+/* ── Zone 1: Headline ── */
+.slide > h2 {
+  flex-shrink: 0;
+}
+
+/* ── Zone 2: Information Canvas ── */
+.slide-body {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* ── Zone 3: Learning Widget ── */
+.slide-learning {
+  flex-shrink: 0;
+  margin: 0;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.slide.active .slide-learning {
+  animation: learningSlideIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.25s both;
+}
+
+@keyframes learningSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========================================
+   SLIDE TYPES
+   ======================================== */
+
+/* Title slide — centered, no 3-zone layout */
 .slide--title {
   justify-content: center;
   align-items: center;
@@ -104,7 +151,44 @@ html, body {
   opacity: 0.6;
 }
 
-/* Content Slides */
+/* End slide — same as title */
+.slide--end {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+  color: var(--color-text-inverse);
+  position: relative;
+}
+
+.slide--end::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 600px;
+  height: 600px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, var(--color-accent-glow) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.slide--end > * {
+  position: relative;
+  z-index: 1;
+}
+
+.slide--end h2 {
+  color: var(--color-text-inverse);
+  border-bottom-color: var(--color-accent);
+  font-size: 2.8rem;
+}
+
+/* ========================================
+   CONTENT ELEMENTS
+   ======================================== */
+
 .slide h2 {
   font-size: 2.2rem;
   color: var(--color-text-inverse);
@@ -133,7 +217,7 @@ html, body {
 }
 
 .slide ul li::before {
-  content: '▸';
+  content: '\25B8';
   position: absolute;
   left: 0;
   color: var(--color-accent);
@@ -173,12 +257,13 @@ html, body {
   padding: 0;
 }
 
-/* Two-column layout */
+/* Two-column layout — grows inside slide-body */
 .columns {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 40px;
   flex: 1;
+  min-height: 0;
 }
 
 /* Highlight box — Glasmorphism */
@@ -191,6 +276,12 @@ html, body {
   border-radius: 0 12px 12px 0;
   margin: 0.8em 0;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Learning highlight-box: remove default margin */
+.slide-learning.highlight-box {
+  margin: 0;
+  margin-top: 16px;
 }
 
 /* Demo slide */
@@ -242,40 +333,6 @@ html, body {
 /* Fullscreen adjustments */
 :fullscreen .slide-deck {
   background: var(--color-bg-dark);
-}
-
-/* End slide */
-.slide--end {
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
-  color: var(--color-text-inverse);
-  position: relative;
-}
-
-.slide--end::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 600px;
-  height: 600px;
-  transform: translate(-50%, -50%);
-  background: radial-gradient(circle, var(--color-accent-glow) 0%, transparent 70%);
-  pointer-events: none;
-  z-index: 0;
-}
-
-.slide--end > * {
-  position: relative;
-  z-index: 1;
-}
-
-.slide--end h2 {
-  color: var(--color-text-inverse);
-  border-bottom-color: var(--color-accent);
-  font-size: 2.8rem;
 }
 
 /* Emoji/icon styling */
@@ -492,7 +549,7 @@ html, body {
 /* Responsive scaling */
 @media (max-width: 1200px) {
   .slide {
-    padding: 40px 50px;
+    padding: 40px 50px 20px;
   }
   .slide h2 { font-size: 1.8rem; }
   .slide ul li { font-size: 1.1rem; }

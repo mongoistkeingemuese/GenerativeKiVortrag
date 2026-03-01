@@ -1,6 +1,7 @@
 services:
   # ============================================
-  # Stack 1: Presentation + LLM Backend
+  # Presentation (nginx — static files)
+  # Backend runs on host for Claude CLI access
   # ============================================
   rex:
     build:
@@ -9,17 +10,4 @@ services:
     container_name: rex-presentation
     restart: unless-stopped
     ports:
-      - "8080:8080"
-    environment:
-      - LLM_PROVIDER=${LLM_PROVIDER:-openai}
-      - LLM_API_URL=${LLM_API_URL:-https://api.openai.com/v1}
-      - LLM_API_KEY=${LLM_API_KEY:-}
-      - LLM_MODEL=${LLM_MODEL:-gpt-4o}
-      - LLM_MAX_TOKENS=${LLM_MAX_TOKENS:-2048}
-      - LLM_TEMPERATURE=${LLM_TEMPERATURE:-0.7}
-    networks:
-      - rex-network
-
-networks:
-  rex-network:
-    driver: bridge
+      - "8090:8080"
