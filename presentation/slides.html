@@ -361,54 +361,164 @@
           </thead>
           <tbody>
             <tr>
-              <td><span class="logo-cell"><img src="assets/logos/anthropic.svg" alt="" width="24" height="24">Claude Opus 4.5</span></td>
+              <td><span class="logo-cell"><img src="assets/logos/anthropic.svg" alt="" width="24" height="24">Claude Opus 4.6</span></td>
               <td>Anthropic</td>
-              <td>80.9%</td>
+              <td>80.8%</td>
               <td>200k Tokens</td>
-              <td>Coding-Agent, Analyse</td>
+              <td>Coding-Agent, Agent Teams</td>
             </tr>
             <tr>
-              <td><span class="logo-cell"><img src="assets/logos/openai.svg" alt="" width="24" height="24">GPT-5</span></td>
-              <td>OpenAI</td>
-              <td>74.9%</td>
-              <td>128k Tokens</td>
-              <td>Allrounder, multimodal</td>
-            </tr>
-            <tr>
-              <td><span class="logo-cell"><img src="assets/logos/deepseek.svg" alt="" width="24" height="24">DeepSeek V3.1</span></td>
-              <td>DeepSeek</td>
-              <td>66.0%</td>
-              <td>128k Tokens</td>
-              <td>Open Source, g&uuml;nstig</td>
-            </tr>
-            <tr>
-              <td><span class="logo-cell"><img src="assets/logos/google.svg" alt="" width="24" height="24">Gemini 2.5 Pro</span></td>
+              <td><span class="logo-cell"><img src="assets/logos/google.svg" alt="" width="24" height="24">Gemini 3.1 Pro</span></td>
               <td>Google</td>
-              <td>63.8%</td>
+              <td>80.6%</td>
               <td>1M Tokens</td>
               <td>Riesiger Kontext, multimodal</td>
             </tr>
             <tr>
-              <td><span class="logo-cell"><img src="assets/logos/meta.svg" alt="" width="24" height="24">Llama 4</span></td>
-              <td>Meta</td>
-              <td>~58%</td>
-              <td>128k Tokens</td>
-              <td>Open Source, lokal betreibbar</td>
+              <td><span class="logo-cell"><img src="assets/logos/openai.svg" alt="" width="24" height="24">GPT-5.2</span></td>
+              <td>OpenAI</td>
+              <td>80.0%</td>
+              <td>400k Tokens</td>
+              <td>Allrounder, Reasoning</td>
             </tr>
             <tr>
-              <td><span class="logo-cell"><img src="assets/logos/mistral.svg" alt="" width="24" height="24">Mistral Large</span></td>
+              <td><span class="logo-cell"><img src="assets/logos/mistral.svg" alt="" width="24" height="24">Devstral 2</span></td>
               <td>Mistral AI</td>
-              <td>~52%</td>
+              <td>72.2%</td>
+              <td>256k Tokens</td>
+              <td>Open Weights, Coding-Spezialist</td>
+            </tr>
+            <tr>
+              <td><span class="logo-cell"><img src="assets/logos/deepseek.svg" alt="" width="24" height="24">DeepSeek V3.2</span></td>
+              <td>DeepSeek</td>
+              <td>~68%</td>
               <td>128k Tokens</td>
-              <td>Europ&auml;isch, Open Weights</td>
+              <td>Open Source, g&uuml;nstig</td>
+            </tr>
+            <tr>
+              <td><span class="logo-cell"><img src="assets/logos/meta.svg" alt="" width="24" height="24">Llama 4 Maverick</span></td>
+              <td>Meta</td>
+              <td>&mdash;</td>
+              <td>1M Tokens</td>
+              <td>Open Source, MoE-Architektur</td>
             </tr>
           </tbody>
         </table>
       </div>
       <div class="highlight-box slide-learning">
-        <p><strong>SWE-bench Verified</strong> misst, ob ein Modell echte GitHub-Issues l&ouml;sen kann (500 reale Bugs). Aussagekr&auml;ftiger als HumanEval, wo alle Top-Modelle &gt;90% erreichen.</p>
+        <p><strong>SWE-bench Verified</strong> misst, ob ein Modell echte GitHub-Issues l&ouml;sen kann (500 reale Bugs). Die Top 3 liegen erstmals unter 1% Abstand.</p>
       </div>
-      <aside class="notes" hidden>SWE-bench Verified ist der Gold-Standard f&uuml;r Coding-Benchmarks. Stand Januar 2026. Die Werte &auml;ndern sich schnell &mdash; Tendenz: alle steigen.</aside>
+      <aside class="notes" hidden>Stand M&auml;rz 2026. Die Spitze ist extrem eng zusammenger&uuml;ckt &mdash; Claude, Gemini und GPT trennen nur 0.8 Prozentpunkte. Devstral 2 ist Mistrals Coding-Spezialist (Open Weights, Apache 2.0). Llama 4 Maverick hat keinen aussagekr&auml;ftigen SWE-bench Score, da nicht als Coding-Modell optimiert &mdash; daf&uuml;r 1M Kontext und MoE mit 400B Parametern.</aside>
+    </section>
+
+    <!-- Slide: LLM-Entwicklung (SWE-bench Timeline) -->
+    <section class="slide">
+      <h2>LLM-Entwicklung &mdash; SWE-bench Verified</h2>
+      <div class="slide-body" style="display: flex; justify-content: center; align-items: stretch;">
+        <svg viewBox="0 0 900 460" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" style="width: 100%; height: 100%; flex: 1;">
+          <!-- Horizontal grid lines (Y range: 30%–82%, plot y: 395→25) -->
+          <line x1="80" y1="324" x2="830" y2="324" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+          <line x1="80" y1="253" x2="830" y2="253" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+          <line x1="80" y1="182" x2="830" y2="182" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+          <line x1="80" y1="110" x2="830" y2="110" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+          <line x1="80" y1="39" x2="830" y2="39" stroke="rgba(255,255,255,0.15)" stroke-width="1" stroke-dasharray="4,4"/>
+
+          <!-- Vertical grid lines -->
+          <line x1="182" y1="395" x2="182" y2="25" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+          <line x1="285" y1="395" x2="285" y2="25" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+          <line x1="387" y1="395" x2="387" y2="25" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+          <line x1="489" y1="395" x2="489" y2="25" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+          <line x1="591" y1="395" x2="591" y2="25" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+          <line x1="694" y1="395" x2="694" y2="25" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+
+          <!-- Y axis labels -->
+          <text x="72" y="399" text-anchor="end" fill="rgba(255,255,255,0.45)" font-size="11" font-family="'Segoe UI',system-ui,sans-serif">30%</text>
+          <text x="72" y="328" text-anchor="end" fill="rgba(255,255,255,0.45)" font-size="11" font-family="'Segoe UI',system-ui,sans-serif">40%</text>
+          <text x="72" y="257" text-anchor="end" fill="rgba(255,255,255,0.45)" font-size="11" font-family="'Segoe UI',system-ui,sans-serif">50%</text>
+          <text x="72" y="186" text-anchor="end" fill="rgba(255,255,255,0.45)" font-size="11" font-family="'Segoe UI',system-ui,sans-serif">60%</text>
+          <text x="72" y="114" text-anchor="end" fill="rgba(255,255,255,0.45)" font-size="11" font-family="'Segoe UI',system-ui,sans-serif">70%</text>
+          <text x="72" y="43" text-anchor="end" fill="rgba(255,255,255,0.45)" font-size="11" font-family="'Segoe UI',system-ui,sans-serif">80%</text>
+
+          <!-- X axis -->
+          <line x1="80" y1="395" x2="830" y2="395" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+
+          <!-- X axis labels (quarters) -->
+          <text x="80" y="415" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-size="11" font-family="'Segoe UI',system-ui,sans-serif">Q2'24</text>
+          <text x="182" y="415" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-size="11" font-family="'Segoe UI',system-ui,sans-serif">Q3'24</text>
+          <text x="285" y="415" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-size="11" font-family="'Segoe UI',system-ui,sans-serif">Q4'24</text>
+          <text x="387" y="415" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-size="11" font-family="'Segoe UI',system-ui,sans-serif">Q1'25</text>
+          <text x="489" y="415" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-size="11" font-family="'Segoe UI',system-ui,sans-serif">Q2'25</text>
+          <text x="591" y="415" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-size="11" font-family="'Segoe UI',system-ui,sans-serif">Q3'25</text>
+          <text x="694" y="415" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-size="11" font-family="'Segoe UI',system-ui,sans-serif">Q4'25</text>
+          <text x="796" y="415" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-size="11" font-family="'Segoe UI',system-ui,sans-serif">Q1'26</text>
+
+          <!-- === Data lines === -->
+          <!-- Anthropic: 3.5 Sonnet(33.4) → 3.5 new(49) → 3.7(62.3) → Sonnet 4(72.7) → Sonnet 4.5(77.2) → Opus 4.5(80.9) → Opus 4.6(80.8) -->
+          <polyline points="114,371 250,260 387,165 523,91 626,59 694,33 796,34" fill="none" stroke="#F59E0B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- OpenAI: GPT-4o(33.2) → o1-preview(41.3) → o1(48.9) → o3(69.1) → GPT-5(74.9) → GPT-5.1(76.3) → GPT-5.2(80) -->
+          <polyline points="80,372 216,315 319,261 455,117 591,76 660,66 728,39" fill="none" stroke="#34D399" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- Google: Gemini 2.0 Flash(51.8) → 2.5 Pro(63.8) → 3 Flash(78) → 3.1 Pro(80.6) -->
+          <polyline points="319,240 421,155 728,54 796,35" fill="none" stroke="#93C5FD" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- DeepSeek: V3(38.8) → R1(49.2) → V3.1(66) → V3.2(67.8) -->
+          <polyline points="319,332 353,258 557,139 728,126" fill="none" stroke="#22D3EE" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- Mistral: Devstral(46.8) → Devstral 2(72.2) -->
+          <polyline points="489,276 728,95" fill="none" stroke="#F87171" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+          <!-- === Data points === -->
+          <!-- Anthropic -->
+          <circle cx="114" cy="371" r="3" fill="#F59E0B"/>
+          <circle cx="250" cy="260" r="3" fill="#F59E0B"/>
+          <circle cx="387" cy="165" r="3" fill="#F59E0B"/>
+          <circle cx="523" cy="91" r="3" fill="#F59E0B"/>
+          <circle cx="626" cy="59" r="3" fill="#F59E0B"/>
+          <circle cx="694" cy="33" r="3" fill="#F59E0B"/>
+          <circle cx="796" cy="34" r="4.5" fill="#F59E0B"/>
+          <!-- OpenAI -->
+          <circle cx="80" cy="372" r="3" fill="#34D399"/>
+          <circle cx="216" cy="315" r="3" fill="#34D399"/>
+          <circle cx="319" cy="261" r="3" fill="#34D399"/>
+          <circle cx="455" cy="117" r="3" fill="#34D399"/>
+          <circle cx="591" cy="76" r="3" fill="#34D399"/>
+          <circle cx="660" cy="66" r="3" fill="#34D399"/>
+          <circle cx="728" cy="39" r="4.5" fill="#34D399"/>
+          <!-- Google -->
+          <circle cx="319" cy="240" r="3" fill="#93C5FD"/>
+          <circle cx="421" cy="155" r="3" fill="#93C5FD"/>
+          <circle cx="728" cy="54" r="3" fill="#93C5FD"/>
+          <circle cx="796" cy="35" r="4.5" fill="#93C5FD"/>
+          <!-- DeepSeek -->
+          <circle cx="319" cy="332" r="3" fill="#22D3EE"/>
+          <circle cx="353" cy="258" r="3" fill="#22D3EE"/>
+          <circle cx="557" cy="139" r="3" fill="#22D3EE"/>
+          <circle cx="728" cy="126" r="4.5" fill="#22D3EE"/>
+          <!-- Mistral -->
+          <circle cx="489" cy="276" r="3" fill="#F87171"/>
+          <circle cx="728" cy="95" r="4.5" fill="#F87171"/>
+
+          <!-- Endpoint score labels -->
+          <text x="808" y="27" fill="#F59E0B" font-size="10" font-weight="600" font-family="'Segoe UI',system-ui,sans-serif">80.8%</text>
+          <text x="808" y="50" fill="#93C5FD" font-size="10" font-weight="600" font-family="'Segoe UI',system-ui,sans-serif">80.6%</text>
+          <text x="740" y="33" fill="#34D399" font-size="10" font-weight="600" font-family="'Segoe UI',system-ui,sans-serif">80.0%</text>
+          <text x="740" y="90" fill="#F87171" font-size="10" font-weight="600" font-family="'Segoe UI',system-ui,sans-serif">72.2%</text>
+          <text x="740" y="121" fill="#22D3EE" font-size="10" font-weight="600" font-family="'Segoe UI',system-ui,sans-serif">~68%</text>
+
+          <!-- Legend -->
+          <circle cx="170" cy="443" r="5" fill="#F59E0B"/>
+          <text x="181" y="447" fill="#e0e0e0" font-size="12" font-family="'Segoe UI',system-ui,sans-serif">Anthropic</text>
+          <circle cx="310" cy="443" r="5" fill="#34D399"/>
+          <text x="321" y="447" fill="#e0e0e0" font-size="12" font-family="'Segoe UI',system-ui,sans-serif">OpenAI</text>
+          <circle cx="430" cy="443" r="5" fill="#93C5FD"/>
+          <text x="441" y="447" fill="#e0e0e0" font-size="12" font-family="'Segoe UI',system-ui,sans-serif">Google</text>
+          <circle cx="540" cy="443" r="5" fill="#22D3EE"/>
+          <text x="551" y="447" fill="#e0e0e0" font-size="12" font-family="'Segoe UI',system-ui,sans-serif">DeepSeek</text>
+          <circle cx="670" cy="443" r="5" fill="#F87171"/>
+          <text x="681" y="447" fill="#e0e0e0" font-size="12" font-family="'Segoe UI',system-ui,sans-serif">Mistral</text>
+        </svg>
+      </div>
+      <div class="highlight-box slide-learning">
+        <p>In 2 Jahren von ~33% auf ~81% &mdash; und die Top 3 trennen nur noch 0,8 Prozentpunkte.</p>
+      </div>
+      <aside class="notes" hidden>Der Graph zeigt die SWE-bench Verified Scores der f&uuml;hrenden Modelle von Mai 2024 bis M&auml;rz 2026. Auff&auml;llig: Die Spitze konvergiert &mdash; Claude, Gemini und GPT liegen praktisch gleichauf bei ~80%. Open-Source-Modelle (DeepSeek, Devstral) holen auf, haben aber noch ~10-13 Prozentpunkte R&uuml;ckstand. Datenpunkte: Anthropic (3.5 Sonnet 33% &rarr; Opus 4.6 81%), OpenAI (GPT-4o 33% &rarr; GPT-5.2 80%), Google (Gemini 2.0 52% &rarr; 3.1 Pro 81%).</aside>
     </section>
 
     <!-- Slide 15: Werkzeuge und Kosten -->
@@ -484,16 +594,16 @@
       <div class="slide-body">
         <div class="stat-callout">
           <div class="fly-in" style="animation-delay: 0.2s;">
-            <span class="stat-number">55%</span>
-            <span class="stat-label">schnellere Task-Completion</span>
-            <span class="tag tag--accent">GitHub/Microsoft 2024</span>
+            <span class="stat-number">3,6h</span>
+            <span class="stat-label">gespart pro Woche / Entwickler</span>
+            <span class="tag tag--accent">DX 2025 &middot; 135k Devs</span>
           </div>
           <div class="fly-in" style="animation-delay: 0.5s;">
-            <span class="stat-number">80&times;</span>
+            <span class="stat-number">~60&times;</span>
             <span class="stat-label">ROI (Tool vs. Ersparnis)</span>
           </div>
           <div class="fly-in" style="animation-delay: 0.8s;">
-            <span class="stat-number">~3.200&euro;</span>
+            <span class="stat-number">~1.250&euro;</span>
             <span class="stat-label">Ersparnis / Entwickler / Monat</span>
           </div>
         </div>
@@ -502,18 +612,18 @@
             <h3>Rechnung</h3>
             <ul>
               <li>Entwickler-Stundensatz: <strong>80&euro;</strong></li>
-              <li>Zeitersparnis: <strong>~2h/Tag</strong> (25%)</li>
-              <li>= <strong>~3.200&euro;/Monat</strong> pro Entwickler</li>
-              <li>Tool-Kosten: <strong>19&ndash;40$/Monat</strong></li>
+              <li>Zeitersparnis: <strong>~3,6h/Woche</strong> (DX 2025)</li>
+              <li>= <strong>~1.250&euro;/Monat</strong> pro Entwickler</li>
+              <li>Tool-Kosten: <strong>20&ndash;40$/Monat</strong></li>
             </ul>
           </div>
           <div>
             <h3>Studien</h3>
             <ul>
-              <li><strong>McKinsey 2024:</strong> +26% mehr Code/Woche</li>
-              <li><strong>DORA 2024:</strong> +26% Deployment-Frequenz</li>
-              <li><strong>Google:</strong> Code-Review-Zeit &minus;30%</li>
-              <li><strong>Stack Overflow:</strong> 75% f&uuml;hlen sich produktiver</li>
+              <li><strong>DORA 2025:</strong> +21% Task Completion, +98% PRs</li>
+              <li><strong>Science 2026:</strong> 29% des neuen Codes AI-generiert</li>
+              <li><strong>Stack Overflow 2025:</strong> 84% nutzen AI-Tools</li>
+              <li><strong>DX Q4 2025:</strong> 91% AI-Adoption in Unternehmen</li>
             </ul>
           </div>
         </div>
@@ -521,7 +631,7 @@
       <div class="highlight-box slide-learning">
         <p>Der ROI ist messbar und &uuml;berzeugend &mdash; selbst bei konservativer Rechnung amortisieren sich KI-Tools am ersten Tag.</p>
       </div>
-      <aside class="notes" hidden>Die Rechnung: 80&euro; &times; 2h &times; 20 Tage = 3.200&euro;. Dagegen stehen 19-40$ Tool-Kosten. Das ist ein No-Brainer f&uuml;r jedes Unternehmen. Alle Studien verlinkt im Anhang.</aside>
+      <aside class="notes" hidden>Die Rechnung basiert auf dem DX Impact Report Q4 2025 (135.000 Entwickler, 435 Unternehmen): 3,6h/Woche &times; 4,33 &times; 80&euro; &asymp; 1.250&euro;. Dagegen stehen 20&ndash;40$ Tool-Kosten. Der DORA 2025 Report zeigt: individuelle Gewinne sind real, aber &uuml;bersetzen sich nicht automatisch in Org-Metriken &mdash; gute Prozesse bleiben entscheidend.</aside>
     </section>
 
     <!-- Slide 17: Sicherheit & Datenschutz -->
@@ -536,8 +646,8 @@
           <li><strong>DSGVO &amp; Compliance</strong> &mdash; Wohin flie&szlig;en die Daten?</li>
         </ul>
       </div>
-      <div class="highlight-box slide-learning">
-        <p>Faustregel: Was du nicht in eine &ouml;ffentliche E-Mail schreiben w&uuml;rdest, geh&ouml;rt nicht in einen Cloud-Prompt.</p>
+      <div class="highlight-box slide-learning fly-in" style="animation-delay: 0.6s;">
+        <p>Faustregel: Alles was man nicht in den Gruppenchat teilen w&uuml;rde, geh&ouml;rt nicht ins Prompt.</p>
       </div>
       <aside class="notes" hidden>Sicherheit ist kein Blocker, aber muss bedacht werden. Enterprise-L&ouml;sungen bieten No-Training-Garantie und Audit-Logs. F&uuml;r sensible Projekte: Self-hosted oder On-Premise.</aside>
     </section>

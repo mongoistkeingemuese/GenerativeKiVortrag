@@ -192,7 +192,7 @@ html, body {
 .slide h2 {
   font-size: 2.2rem;
   color: var(--color-text-inverse);
-  margin-bottom: 0.8em;
+  margin-bottom: 1.4em;
   padding-bottom: 0.3em;
   border-bottom: 3px solid #000000;
 }
