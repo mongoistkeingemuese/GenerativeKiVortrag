@@ -15,7 +15,7 @@ class Sidebar {
     this.list.innerHTML = '';
     this.engine.slides.forEach((slide, i) => {
       const title = slide.querySelector('h2, h1')?.textContent || `Folie ${i + 1}`;
-      const isDemo = slide.classList.contains('slide--demo') || slide.dataset.chat;
+      const isDemo = slide.classList.contains('slide--demo');
 
       const li = document.createElement('li');
       const a = document.createElement('a');

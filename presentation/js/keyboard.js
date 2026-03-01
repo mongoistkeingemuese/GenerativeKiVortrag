@@ -43,7 +43,6 @@ class KeyboardController {
           }
           break;
         case 'Escape':
-          // Chat close handled by chat.js
           break;
       }
     });
@@ -53,7 +52,7 @@ class KeyboardController {
     const deck = this.engine.container;
     deck.addEventListener('click', (e) => {
       // Don't navigate when clicking interactive elements
-      if (e.target.closest('button, a, input, textarea, iframe, .chat-panel')) return;
+      if (e.target.closest('button, a, input, textarea, iframe')) return;
 
       const rect = deck.getBoundingClientRect();
       const x = e.clientX - rect.left;
