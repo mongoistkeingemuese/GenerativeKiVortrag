@@ -231,6 +231,38 @@
       <aside class="notes" hidden>Der Shift von &bdquo;Probleme l&ouml;sen&ldquo; zu &bdquo;automatisiert l&ouml;sen&ldquo; ist der Kern von Agentic AI. Statt einzelne Prompts abzusetzen, definiert man Ziele und l&auml;sst spezialisierte Agenten autonom arbeiten. Die Guardrails &mdash; Tests, Linter, Reviews &mdash; werden zu den Leitplanken, innerhalb derer Agenten frei agieren.</aside>
     </section>
 
+    <!-- Slide: Realitätscheck — KI-Code auf lange Sicht -->
+    <section class="slide">
+      <h2>Realit&auml;tscheck: KI-Code auf lange Sicht</h2>
+      <div class="slide-body">
+        <p style="margin-bottom: 1em; color: var(--color-text-light);">Langzeitdaten aus Enterprise-Umgebungen (GitClear, DORA 2025/2026):</p>
+        <div class="columns">
+          <div>
+            <h3>Ohne Struktur</h3>
+            <ul>
+              <li class="fly-in" style="animation-delay: 0.2s;"><strong>2&times; Code Churn</strong> &mdash; KI-Code wird doppelt so oft &uuml;berschrieben</li>
+              <li class="fly-in" style="animation-delay: 0.4s;"><strong>Cargo Cult</strong> &mdash; Anti-Patterns werden repliziert, weil sie h&auml;ufig im Repo vorkommen</li>
+              <li class="fly-in" style="animation-delay: 0.6s;"><strong>Flickenteppich</strong> &mdash; Lokal gel&ouml;st, global inkonsistent</li>
+              <li class="fly-in" style="animation-delay: 0.8s;"><strong>Wartungskosten</strong> &mdash; Nach 12 Monaten &uuml;ber manuellem Niveau</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Mit Context Engineering</h3>
+            <ul>
+              <li class="fly-in" style="animation-delay: 0.4s;"><strong>Explizite Regeln</strong> &mdash; .md-Dateien steuern Stil &amp; Architektur</li>
+              <li class="fly-in" style="animation-delay: 0.6s;"><strong>Architektur-Treue</strong> &mdash; Agent pr&uuml;ft gegen Projekt-Docs</li>
+              <li class="fly-in" style="animation-delay: 0.8s;"><strong>Pr&auml;zise Tests</strong> &mdash; Logik testen, nicht nur Coverage</li>
+              <li class="fly-in" style="animation-delay: 1.0s;"><strong>Langfristig stabil</strong> &mdash; Code passt zur Gesamtarchitektur</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="highlight-box slide-learning">
+        <p>Nicht das Tool entscheidet &mdash; sondern <strong>wie</strong> man es einsetzt. Ohne Struktur verdoppelt sich der Code-Churn.</p>
+      </div>
+      <aside class="notes" hidden>Daten von GitClear und DORA 2025/2026: KI-generierter Code ohne Kontext wird doppelt so h&auml;ufig innerhalb von zwei Wochen gel&ouml;scht. Copilot l&ouml;st Tasks lokal perfekt, ignoriert aber die Gesamtarchitektur. Die Frage ist nicht ob KI, sondern wie strukturiert. Das unterstreicht nochmal: Context Engineering ist kein Nice-to-have, sondern Pflicht.</aside>
+    </section>
+
     <!-- Slide 10: Die Evolution: Drei Stufen -->
     <section class="slide">
       <h2>Die Evolution: Drei Stufen</h2>
@@ -324,7 +356,7 @@
           <div>
             <div class="stat-callout" style="flex-direction: column; gap: 16px;">
               <div class="fly-in" style="animation-delay: 0.3s;">
-                <span class="stat-number">~2,5 T.</span>
+                <span class="stat-number">~4,5 T.</span>
                 <span class="stat-label">Entwicklungszeit</span>
               </div>
               <div class="fly-in" style="animation-delay: 0.7s;">
@@ -336,7 +368,7 @@
         </div>
       </div>
       <div class="highlight-box slide-learning">
-        <p>Ein vollst&auml;ndiges Lizenzmanagementsystem &mdash; von der Schl&uuml;sselgenerierung bis zum Admin-Dashboard &mdash; in 2,5 Tagen.</p>
+        <p>Ein vollst&auml;ndiges Lizenzmanagementsystem &mdash; von der Schl&uuml;sselgenerierung bis zum Admin-Dashboard &mdash; in 4,5 Tagen.</p>
       </div>
       <aside class="notes" hidden>Der Lizenzmanager zeigt die Skalierung: Ein echtes Enterprise-System mit Kryptographie, Datenbank, Frontend und API. Hier hat Context Engineering den Unterschied gemacht &mdash; konsistenter Code &uuml;ber das gesamte Projekt. 2,5 Tage Entwicklungszeit mit einem Entwickler und KI-Unterst&uuml;tzung.</aside>
     </section>
@@ -634,38 +666,6 @@
         </div>
       </div>
       <aside class="notes" hidden>Komprimiert auf die drei Tools, die im Alltag relevant sind. Copilot f&uuml;r Inline-Completion, Claude Code f&uuml;r komplexe Aufgaben, Cursor als All-in-One. Alle haben Free-Tiers zum Ausprobieren. F&uuml;r professionellen Einsatz: Pro-Tier ab 10-20 Dollar.</aside>
-    </section>
-
-    <!-- Slide: Realitätscheck — KI-Code auf lange Sicht -->
-    <section class="slide">
-      <h2>Realit&auml;tscheck: KI-Code auf lange Sicht</h2>
-      <div class="slide-body">
-        <p style="margin-bottom: 1em; color: var(--color-text-light);">Langzeitdaten aus Enterprise-Umgebungen (GitClear, DORA 2025/2026):</p>
-        <div class="columns">
-          <div>
-            <h3>Ohne Struktur</h3>
-            <ul>
-              <li class="fly-in" style="animation-delay: 0.2s;"><strong>2&times; Code Churn</strong> &mdash; KI-Code wird doppelt so oft &uuml;berschrieben</li>
-              <li class="fly-in" style="animation-delay: 0.4s;"><strong>Cargo Cult</strong> &mdash; Anti-Patterns werden repliziert, weil sie h&auml;ufig im Repo vorkommen</li>
-              <li class="fly-in" style="animation-delay: 0.6s;"><strong>Flickenteppich</strong> &mdash; Lokal gel&ouml;st, global inkonsistent</li>
-              <li class="fly-in" style="animation-delay: 0.8s;"><strong>Wartungskosten</strong> &mdash; Nach 12 Monaten &uuml;ber manuellem Niveau</li>
-            </ul>
-          </div>
-          <div>
-            <h3>Mit Context Engineering</h3>
-            <ul>
-              <li class="fly-in" style="animation-delay: 0.4s;"><strong>Explizite Regeln</strong> &mdash; .md-Dateien steuern Stil &amp; Architektur</li>
-              <li class="fly-in" style="animation-delay: 0.6s;"><strong>Architektur-Treue</strong> &mdash; Agent pr&uuml;ft gegen Projekt-Docs</li>
-              <li class="fly-in" style="animation-delay: 0.8s;"><strong>Pr&auml;zise Tests</strong> &mdash; Logik testen, nicht nur Coverage</li>
-              <li class="fly-in" style="animation-delay: 1.0s;"><strong>Langfristig stabil</strong> &mdash; Code passt zur Gesamtarchitektur</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="highlight-box slide-learning">
-        <p>Nicht das Tool entscheidet &mdash; sondern <strong>wie</strong> man es einsetzt. Ohne Struktur verdoppelt sich der Code-Churn.</p>
-      </div>
-      <aside class="notes" hidden>Daten von GitClear und DORA 2025/2026: KI-generierter Code ohne Kontext wird doppelt so h&auml;ufig innerhalb von zwei Wochen gel&ouml;scht. Copilot l&ouml;st Tasks lokal perfekt, ignoriert aber die Gesamtarchitektur. Die Frage ist nicht ob KI, sondern wie strukturiert. Das unterstreicht nochmal: Context Engineering ist kein Nice-to-have, sondern Pflicht.</aside>
     </section>
 
     <!-- Slide 17: ROI — Was bringt's wirklich? -->
