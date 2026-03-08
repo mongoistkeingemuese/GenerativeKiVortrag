@@ -425,6 +425,38 @@
       <aside class="notes" hidden>Der AutoTranslate Runner zeigt den kompletten Agentic Workflow: 29 Feature-Dateien im Backlog, jede mit Status, Analyse, Plan und Umsetzung &mdash; im Grunde Agent-Tasks. FEAT-010 wurde in 6 Chunks zerlegt mit Dependency-Graph, 3 davon parallelisierbar. CLAUDE.md (306 Zeilen) definiert Code-Standards, Docstring-Konvention (Purpose/Use Case/Why) und Testregeln. Ergebnis: 514 Tests, 90% Coverage, von null auf Produktion in ~52 Stunden. Das ist Context Engineering + Agentic in Reinform.</aside>
     </section>
 
+    <!-- Slide: Praxisvergleich — Agentic braucht Fundament -->
+    <section class="slide">
+      <h2>Praxisvergleich: Agentic braucht Fundament</h2>
+      <div class="slide-body">
+        <p style="margin-bottom: 1em; color: var(--color-text-light);">Gleicher Entwickler, zwei Projekte, unterschiedliches Context Engineering:</p>
+        <div class="columns">
+          <div class="highlight-box fly-in" style="animation-delay: 0.2s;">
+            <h3>AutoTranslate Runner</h3>
+            <ul>
+              <li><strong>CLAUDE.md:</strong> 306 Zeilen, Code-Standards, Docstring-Konvention, Testregeln</li>
+              <li><strong>Agentic:</strong> 29 Feature-Dateien, sequentiell abgearbeitet</li>
+              <li><strong>Ergebnis:</strong> 514 Tests, 90% Coverage, produktiv in ~6,5 Tagen</li>
+            </ul>
+            <p class="meta" style="margin-top: 0.8em; color: var(--color-success);">&#10003; Fundament zuerst, dann skaliert</p>
+          </div>
+          <div class="highlight-box fly-in" style="animation-delay: 0.5s;">
+            <h3>Tauri Game App</h3>
+            <ul>
+              <li><strong>CLAUDE.md:</strong> Vorhanden, aber MDs nicht pr&auml;zise genug</li>
+              <li><strong>Agentic:</strong> 98 Tasks, 4 parallele Agenten, voller Orchestrator</li>
+              <li><strong>Problem:</strong> Validierung wird Bottleneck, Codequalit&auml;t unklar</li>
+            </ul>
+            <p class="meta" style="margin-top: 0.8em; color: var(--color-danger);">&#10007; Skaliert die Produktion, nicht die Qualit&auml;t</p>
+          </div>
+        </div>
+      </div>
+      <div class="highlight-box slide-learning">
+        <p>Agentic ohne solides Context Engineering skaliert nur die Probleme &mdash; <strong>das Fundament entscheidet</strong>.</p>
+      </div>
+      <aside class="notes" hidden>Das ist ein echtes Praxisbeispiel: Beim AutoTranslate Runner habe ich sauber gearbeitet &mdash; 306 Zeilen CLAUDE.md, klare Docstring-Konvention (Purpose/Use Case/Why), Testregeln. Die Features wurden sequentiell abgearbeitet, ich konnte jeden Schritt validieren. Bei der Tauri Game App hatte ich einen vollen Orchestrator mit 98 Tasks und 4 parallelen Agenten. Die Struktur war da, aber die MDs waren nicht pr&auml;zise genug. Ergebnis: Ich kam mit dem Testen nicht hinterher, konnte nicht einsch&auml;tzen ob die Codequalit&auml;t unter dem Mergen leidet. Die Lektion: Mehr Automatisierung ist nicht automatisch besser. Context Engineering ist das Fundament &mdash; ohne das skaliert man nur die Probleme.</aside>
+    </section>
+
     <!-- Slide 15: LLMs im Überblick -->
     <section class="slide">
       <h2>LLMs im &Uuml;berblick</h2>
@@ -732,23 +764,18 @@
       <aside class="notes" hidden>Sicherheit ist kein Blocker, aber muss bedacht werden. Enterprise-L&ouml;sungen bieten No-Training-Garantie und Audit-Logs. F&uuml;r sensible Projekte: Self-hosted oder On-Premise.</aside>
     </section>
 
-    <!-- Slide 19: Key Learnings -->
+    <!-- Slide: Fazit -->
     <section class="slide">
-      <h2>Key Learnings</h2>
+      <h2>Fazit</h2>
       <div class="slide-body">
         <div class="learnings-list">
-          <div class="learning-item" style="animation-delay: 0.2s;"><span class="learning-num">1</span>Von null auf spielbares Tetris in unter 5 Minuten &mdash; mit einem einzigen Prompt.</div>
-          <div class="learning-item" style="animation-delay: 0.4s;"><span class="learning-num">2</span>Vibe Coding hat eine Grenze &mdash; und die erreicht man schneller als gedacht.</div>
-          <div class="learning-item" style="animation-delay: 0.6s;"><span class="learning-num">3</span>Wer die Grenzen kennt, setzt KI gezielter ein &mdash; und bleibt dort Mensch, wo es darauf ankommt.</div>
-          <div class="learning-item" style="animation-delay: 0.8s;"><span class="learning-num">4</span>Der gr&ouml;&szlig;te Sprung liegt zwischen Stufe 1 und 2 &mdash; Context Engineering ist der Schl&uuml;ssel.</div>
-          <div class="learning-item" style="animation-delay: 1.0s;"><span class="learning-num">5</span>Context Engineering ist keine Raketenwissenschaft &mdash; es ist eine Markdown-Datei, die den Unterschied macht.</div>
-          <div class="learning-item" style="animation-delay: 1.2s;"><span class="learning-num">6</span>Agentic AI verschiebt die Rolle: vom Prompten zum Orchestrieren autonomer Systeme.</div>
-          <div class="learning-item" style="animation-delay: 1.4s;"><span class="learning-num">7</span>Der ROI ist messbar &mdash; selbst bei konservativer Rechnung amortisieren sich KI-Tools am ersten Tag.</div>
-          <div class="learning-item" style="animation-delay: 1.6s;"><span class="learning-num">8</span>Was du nicht in eine &ouml;ffentliche E-Mail schreiben w&uuml;rdest, geh&ouml;rt nicht in einen Cloud-Prompt.</div>
-          <div class="learning-item" style="animation-delay: 1.8s;"><span class="learning-num">9</span>Die Lernkurve des effektiven Einsatzes ist steiler als gedacht.</div>
+          <div class="learning-item fly-in" style="animation-delay: 0.3s;"><span class="learning-num">&#10148;</span>Programmieren mit KI <strong>macht Spa&szlig;</strong> &mdash; und ver&auml;ndert, wie wir &uuml;ber Softwareentwicklung denken.</div>
+          <div class="learning-item fly-in" style="animation-delay: 0.7s;"><span class="learning-num">&#10148;</span>Es erfordert <strong>Erfahrung und ein Gesp&uuml;r</strong> &mdash; die KI ist so gut wie der Kontext, den man ihr gibt.</div>
+          <div class="learning-item fly-in" style="animation-delay: 1.1s;"><span class="learning-num">&#10148;</span>Wer sich jetzt nicht damit besch&auml;ftigt, ist <strong>schnell outdated</strong> &mdash; die Entwicklung wartet nicht.</div>
+          <div class="learning-item fly-in" style="animation-delay: 1.5s;"><span class="learning-num">&#10148;</span>Die Frage ist nicht <strong>ob</strong>, sondern <strong>wie</strong> man KI einsetzt.</div>
         </div>
       </div>
-      <aside class="notes" hidden>Zusammenfassung aller Learnings aus der Pr&auml;sentation. Jedes Learning blendet nacheinander ein &mdash; gibt dem Publikum Zeit, die Punkte aufzunehmen. Die Reise: Vom Wow-Moment &uuml;ber die Ern&uuml;chterung zum produktiven Werkzeug.</aside>
+      <aside class="notes" hidden>Abschluss-Statement. Die vier Kernbotschaften zum Mitnehmen. KI im Programmieralltag ist kein Hype mehr, sondern Realit&auml;t. Wer die Werkzeuge versteht und strukturiert einsetzt, hat einen echten Vorteil.</aside>
     </section>
 
   </div>
