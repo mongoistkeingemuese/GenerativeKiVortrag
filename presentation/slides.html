@@ -349,34 +349,44 @@
       <aside class="notes" hidden>Live-Demo des Lizenzmanagers. Enterprise-taugliches System: Mandantenf&auml;hig, RSA-4096 Signierung, Admin-Dashboard.</aside>
     </section>
 
-    <!-- Slide 14: Projekt 3: PLC_Express (PLCX) -->
+
+    <!-- Slide: Projekt 3: AutoTranslate Runner -->
     <section class="slide">
-      <h2>Projekt: PLC_Express (PLCX)</h2>
+      <h2>Projekt: AutoTranslate Runner</h2>
       <div class="slide-body">
         <div class="columns">
           <div>
-            <h3>Problem</h3>
             <ul>
-              <li><strong>OPC UA</strong> &mdash; zu langsam f&uuml;r Echtzeit-Daten</li>
-              <li><strong>Komplexit&auml;t</strong> &mdash; Overhead f&uuml;r einfache Anwendungen</li>
-              <li><strong>Latenz</strong> &mdash; Millisekunden z&auml;hlen in der Automatisierung</li>
+              <li><strong>Problem:</strong> Manuelle &Uuml;bersetzung von HMI-Textdatenbanken &mdash; 5 Sprachen, fehleranf&auml;llig</li>
+              <li><strong>L&ouml;sung:</strong> .db parsen &rarr; DeepL &uuml;bersetzen &rarr; zur&uuml;ckschreiben</li>
+              <li><strong>Stack:</strong> Python, Flask, DeepL API, GitLab CI/CD</li>
+              <li><strong>Automatisiert:</strong> GitLab Webhooks triggern Pipeline</li>
+              <li><strong>Qualit&auml;t:</strong> 514 Tests, Glossar-Management, Stale-Detection</li>
+              <li><strong>Context Engineering</strong> &mdash; Modulare Architektur mit klarer Trennung</li>
             </ul>
           </div>
           <div>
-            <h3>L&ouml;sung</h3>
-            <ul>
-              <li><strong>Bin&auml;rprotokoll</strong> &mdash; Minimaler Overhead, maximale Geschwindigkeit</li>
-              <li><strong>Python / FastAPI</strong> &mdash; REST-API f&uuml;r Integration</li>
-              <li><strong>InfluxDB</strong> &mdash; Zeitreihen-Speicherung</li>
-              <li><strong>Agentic Workflow</strong> &mdash; KI plant &amp; implementiert Module</li>
-            </ul>
+            <div class="stat-callout" style="flex-direction: column; gap: 16px;">
+              <div class="fly-in" style="animation-delay: 0.3s;">
+                <span class="stat-number">514</span>
+                <span class="stat-label">Tests</span>
+              </div>
+              <div class="fly-in" style="animation-delay: 0.7s;">
+                <span class="stat-number">5</span>
+                <span class="stat-label">Sprachen automatisiert</span>
+              </div>
+              <div class="fly-in" style="animation-delay: 1.1s;">
+                <span class="stat-number">1</span>
+                <span class="stat-label">Entwickler (+ KI)</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
       <div class="highlight-box slide-learning">
-        <p>Technische Tiefe: Bin&auml;rprotokolle, SPS-Kommunikation, Echtzeit &mdash; auch hier liefert KI, wenn der Kontext stimmt.</p>
+        <p>Industrielle Automatisierung mit KI &mdash; von der Textdatenbank bis zum Git-Commit, vollst&auml;ndig autonom.</p>
       </div>
-      <aside class="notes" hidden>PLCX zeigt: KI funktioniert auch in technisch anspruchsvollen Dom&auml;nen. Bin&auml;rprotokolle, SPS-Kommunikation, Echtzeit-Anforderungen. Der Schl&uuml;ssel war Agentic Workflow &mdash; die KI hat Module geplant und implementiert, ich habe die Architektur vorgegeben und reviewt.</aside>
+      <aside class="notes" hidden>Der AutoTranslate Runner l&ouml;st ein reales Problem in der Maschinensteuerung: HMI-Texte f&uuml;r Divisio-Maschinen m&uuml;ssen in 5 Sprachen vorliegen. Vorher manuell, jetzt vollautomatisch. GitLab Webhook triggert die Pipeline, DeepL &uuml;bersetzt mit Fachglossaren, Bot committed und pusht. 514 Tests sichern die Qualit&auml;t. Perfektes Beispiel f&uuml;r Context Engineering: klare Modulstruktur (parser_core, deepl_client, merge, sync), jedes Modul eine Verantwortung.</aside>
     </section>
 
     <!-- Slide 15: LLMs im Überblick -->
