@@ -361,21 +361,25 @@
               <li><strong>L&ouml;sung:</strong> .db parsen &rarr; DeepL &uuml;bersetzen &rarr; zur&uuml;ckschreiben</li>
               <li><strong>Stack:</strong> Python, Flask, DeepL API, GitLab CI/CD</li>
               <li><strong>Automatisiert:</strong> GitLab Webhooks triggern Pipeline</li>
-              <li><strong>Qualit&auml;t:</strong> 514 Tests, Glossar-Management, Stale-Detection</li>
-              <li><strong>Context Engineering</strong> &mdash; Modulare Architektur mit klarer Trennung</li>
+              <li><strong>Agentic Workflow:</strong> 29 Feature-Dateien als Agent-Tasks, Chunking mit Dependency-Graph</li>
+              <li><strong>Context Engineering:</strong> CLAUDE.md mit Code-Standards, Docstring-Konvention, Testregeln</li>
             </ul>
           </div>
           <div>
             <div class="stat-callout" style="flex-direction: column; gap: 16px;">
               <div class="fly-in" style="animation-delay: 0.3s;">
+                <span class="stat-number">~6,5 T.</span>
+                <span class="stat-label">Entwicklungszeit</span>
+              </div>
+              <div class="fly-in" style="animation-delay: 0.6s;">
                 <span class="stat-number">514</span>
                 <span class="stat-label">Tests</span>
               </div>
-              <div class="fly-in" style="animation-delay: 0.7s;">
-                <span class="stat-number">5</span>
-                <span class="stat-label">Sprachen automatisiert</span>
+              <div class="fly-in" style="animation-delay: 0.9s;">
+                <span class="stat-number">29</span>
+                <span class="stat-label">Feature-Dateien</span>
               </div>
-              <div class="fly-in" style="animation-delay: 1.1s;">
+              <div class="fly-in" style="animation-delay: 1.2s;">
                 <span class="stat-number">1</span>
                 <span class="stat-label">Entwickler (+ KI)</span>
               </div>
@@ -386,7 +390,7 @@
       <div class="highlight-box slide-learning">
         <p>Industrielle Automatisierung mit KI &mdash; von der Textdatenbank bis zum Git-Commit, vollst&auml;ndig autonom.</p>
       </div>
-      <aside class="notes" hidden>Der AutoTranslate Runner l&ouml;st ein reales Problem in der Maschinensteuerung: HMI-Texte f&uuml;r Divisio-Maschinen m&uuml;ssen in 5 Sprachen vorliegen. Vorher manuell, jetzt vollautomatisch. GitLab Webhook triggert die Pipeline, DeepL &uuml;bersetzt mit Fachglossaren, Bot committed und pusht. 514 Tests sichern die Qualit&auml;t. Perfektes Beispiel f&uuml;r Context Engineering: klare Modulstruktur (parser_core, deepl_client, merge, sync), jedes Modul eine Verantwortung.</aside>
+      <aside class="notes" hidden>Der AutoTranslate Runner zeigt den kompletten Agentic Workflow: 29 Feature-Dateien im Backlog, jede mit Status, Analyse, Plan und Umsetzung &mdash; im Grunde Agent-Tasks. FEAT-010 wurde in 6 Chunks zerlegt mit Dependency-Graph, 3 davon parallelisierbar. CLAUDE.md (306 Zeilen) definiert Code-Standards, Docstring-Konvention (Purpose/Use Case/Why) und Testregeln. Ergebnis: 514 Tests, 90% Coverage, von null auf Produktion in ~52 Stunden. Das ist Context Engineering + Agentic in Reinform.</aside>
     </section>
 
     <!-- Slide 15: LLMs im Überblick -->
