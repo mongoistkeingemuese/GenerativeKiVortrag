@@ -129,6 +129,7 @@
           <li><strong>Veraltetes Wissen</strong> &mdash; Training-Cutoff, kennt neueste APIs nicht</li>
           <li><strong>Kontextfenster</strong> &mdash; Gro&szlig;e Codebasen passen nicht komplett rein</li>
           <li><strong>Kein echtes Verst&auml;ndnis</strong> &mdash; Mustererkennung, nicht Logik</li>
+          <li><strong>Anti-Pattern-Verst&auml;rker</strong> &mdash; KI repliziert h&auml;ufige Muster &mdash; auch schlechte</li>
           <li><strong>Architektur-Entscheidungen</strong> &mdash; Hier bleibt der Mensch gefragt</li>
         </ul>
       </div>
@@ -159,12 +160,14 @@
               <li class="fly-in" style="animation-delay: 0.6s;"><strong>Keine Konsistenz</strong> &mdash; Jeder Prompt erzeugt anderen Stil</li>
               <li class="fly-in" style="animation-delay: 0.8s;"><strong>Keine Guardrails</strong> &mdash; Kein automatisches Testen oder Pr&uuml;fen</li>
               <li class="fly-in" style="animation-delay: 1.0s;"><strong>Keine Iteration</strong> &mdash; Fehler werden nicht selbstst&auml;ndig erkannt</li>
+              <li class="fly-in" style="animation-delay: 1.2s;"><strong>Keine Dokumentation</strong> &mdash; Kein sauberes Festhalten von Entscheidungen</li>
+              <li class="fly-in" style="animation-delay: 1.4s;"><strong>Keine Workflows</strong> &mdash; Keine vorgegebenen Prozesse oder Abl&auml;ufe</li>
             </ul>
           </div>
         </div>
       </div>
       <div class="highlight-box slide-learning">
-        <p>Vibe Coding ist der Einstieg &mdash; aber f&uuml;r echte Projekte braucht die KI <strong>Kontext</strong>.</p>
+        <p>Vibe Coding ist der Einstieg &mdash; aber f&uuml;r echte Projekte braucht die KI <strong>Kontext und Struktur</strong>.</p>
       </div>
       <aside class="notes" hidden>Diese Folie fasst zusammen, warum reines Prompten nicht skaliert. Die rechte Spalte zeigt genau die L&uuml;cken, die Context Engineering schlie&szlig;t &mdash; und leitet damit direkt zur n&auml;chsten Folie &uuml;ber.</aside>
     </section>
@@ -617,6 +620,38 @@
         </div>
       </div>
       <aside class="notes" hidden>Komprimiert auf die drei Tools, die im Alltag relevant sind. Copilot f&uuml;r Inline-Completion, Claude Code f&uuml;r komplexe Aufgaben, Cursor als All-in-One. Alle haben Free-Tiers zum Ausprobieren. F&uuml;r professionellen Einsatz: Pro-Tier ab 10-20 Dollar.</aside>
+    </section>
+
+    <!-- Slide: Realitätscheck — KI-Code auf lange Sicht -->
+    <section class="slide">
+      <h2>Realit&auml;tscheck: KI-Code auf lange Sicht</h2>
+      <div class="slide-body">
+        <p style="margin-bottom: 1em; color: var(--color-text-light);">Langzeitdaten aus Enterprise-Umgebungen (GitClear, DORA 2025/2026):</p>
+        <div class="columns">
+          <div>
+            <h3>Ohne Struktur</h3>
+            <ul>
+              <li class="fly-in" style="animation-delay: 0.2s;"><strong>2&times; Code Churn</strong> &mdash; KI-Code wird doppelt so oft &uuml;berschrieben</li>
+              <li class="fly-in" style="animation-delay: 0.4s;"><strong>Cargo Cult</strong> &mdash; Anti-Patterns werden repliziert, weil sie h&auml;ufig im Repo vorkommen</li>
+              <li class="fly-in" style="animation-delay: 0.6s;"><strong>Flickenteppich</strong> &mdash; Lokal gel&ouml;st, global inkonsistent</li>
+              <li class="fly-in" style="animation-delay: 0.8s;"><strong>Wartungskosten</strong> &mdash; Nach 12 Monaten &uuml;ber manuellem Niveau</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Mit Context Engineering</h3>
+            <ul>
+              <li class="fly-in" style="animation-delay: 0.4s;"><strong>Explizite Regeln</strong> &mdash; .md-Dateien steuern Stil &amp; Architektur</li>
+              <li class="fly-in" style="animation-delay: 0.6s;"><strong>Architektur-Treue</strong> &mdash; Agent pr&uuml;ft gegen Projekt-Docs</li>
+              <li class="fly-in" style="animation-delay: 0.8s;"><strong>Pr&auml;zise Tests</strong> &mdash; Logik testen, nicht nur Coverage</li>
+              <li class="fly-in" style="animation-delay: 1.0s;"><strong>Langfristig stabil</strong> &mdash; Code passt zur Gesamtarchitektur</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="highlight-box slide-learning">
+        <p>Nicht das Tool entscheidet &mdash; sondern <strong>wie</strong> man es einsetzt. Ohne Struktur verdoppelt sich der Code-Churn.</p>
+      </div>
+      <aside class="notes" hidden>Daten von GitClear und DORA 2025/2026: KI-generierter Code ohne Kontext wird doppelt so h&auml;ufig innerhalb von zwei Wochen gel&ouml;scht. Copilot l&ouml;st Tasks lokal perfekt, ignoriert aber die Gesamtarchitektur. Die Frage ist nicht ob KI, sondern wie strukturiert. Das unterstreicht nochmal: Context Engineering ist kein Nice-to-have, sondern Pflicht.</aside>
     </section>
 
     <!-- Slide 17: ROI — Was bringt's wirklich? -->
