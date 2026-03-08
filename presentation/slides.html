@@ -207,28 +207,91 @@
     <section class="slide">
       <h2>Automatisiert l&ouml;sen mit KI</h2>
       <div class="slide-body">
-        <p style="margin-bottom: 1em; color: var(--color-text-light);">Von manuell prompten zu autonomen Agenten:</p>
-        <div class="columns" style="gap: 1.5em;">
+        <div class="columns" style="gap: 2em;">
           <div>
             <ul>
-              <li><strong>Problem zerlegen</strong> &mdash; Kleine, klare Aufgaben &mdash; ein Agent pro Teilproblem</li>
-              <li><strong>Kontext bereitstellen</strong> &mdash; Architektur, Constraints, Beispiele &mdash; Agenten lesen CLAUDE.md &amp; Co.</li>
-              <li><strong>Automatisch iterieren</strong> &mdash; Agent testet, erkennt Fehler, korrigiert selbstst&auml;ndig</li>
+              <li><strong>Problem zerlegen</strong> &mdash; Kleine, klare Aufgaben, ein Agent pro Teilproblem</li>
+              <li><strong>Kontext bereitstellen</strong> &mdash; Agenten lesen CLAUDE.md &amp; Co.</li>
+              <li><strong>Automatisch iterieren</strong> &mdash; Agent testet, erkennt Fehler, korrigiert</li>
+              <li><strong>Deterministisch absichern</strong> &mdash; Tests, Linter, Type-Checks als Guardrails</li>
+              <li><strong>Review-Agenten</strong> &mdash; Separater Agent pr&uuml;ft Output</li>
+              <li><strong>Orchestrieren statt prompten</strong> &mdash; Spezialisierte Agenten statt ein Prompt</li>
             </ul>
           </div>
-          <div>
-            <ul>
-              <li><strong>Deterministisch absichern</strong> &mdash; Tests, Linter, Type-Checks als automatische Guardrails f&uuml;r Agenten</li>
-              <li><strong>Review-Agenten einsetzen</strong> &mdash; Separater Agent mit eigenem Kontext pr&uuml;ft Output</li>
-              <li><strong>Orchestrieren statt prompten</strong> &mdash; Mehrere spezialisierte Agenten statt ein Prompt f&uuml;r alles</li>
-            </ul>
+          <div style="display: flex; align-items: center; justify-content: center;">
+            <svg viewBox="0 0 340 380" xmlns="http://www.w3.org/2000/svg" style="width: 100%; max-width: 340px;">
+              <!-- Orchestrator -->
+              <rect x="85" y="8" width="170" height="40" rx="8" fill="rgba(245,158,11,0.15)" stroke="#F59E0B" stroke-width="1.5"/>
+              <text x="170" y="33" text-anchor="middle" fill="#F59E0B" font-size="14" font-weight="600" font-family="'Segoe UI',system-ui,sans-serif">Orchestrator</text>
+
+              <!-- Arrow down to state.json -->
+              <line x1="170" y1="48" x2="170" y2="68" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+
+              <!-- state.json -->
+              <rect x="95" y="68" width="150" height="32" rx="6" fill="rgba(147,197,253,0.1)" stroke="#93C5FD" stroke-width="1"/>
+              <text x="170" y="89" text-anchor="middle" fill="#93C5FD" font-size="12" font-family="'Segoe UI',system-ui,sans-serif">state.json + Deps</text>
+
+              <!-- Arrow down to batch -->
+              <line x1="170" y1="100" x2="170" y2="125" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+
+              <!-- Batch label -->
+              <text x="170" y="142" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="11" font-family="'Segoe UI',system-ui,sans-serif">Batch (parallel)</text>
+
+              <!-- Three agent boxes -->
+              <line x1="170" y1="148" x2="55" y2="168" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+              <line x1="170" y1="148" x2="170" y2="168" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+              <line x1="170" y1="148" x2="285" y2="168" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+
+              <rect x="10" y="168" width="90" height="36" rx="6" fill="rgba(52,211,153,0.12)" stroke="#34D399" stroke-width="1"/>
+              <text x="55" y="183" text-anchor="middle" fill="#34D399" font-size="11" font-weight="600" font-family="'Segoe UI',system-ui,sans-serif">Agent 1</text>
+              <text x="55" y="197" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="9" font-family="'Segoe UI',system-ui,sans-serif">worktree/</text>
+
+              <rect x="125" y="168" width="90" height="36" rx="6" fill="rgba(52,211,153,0.12)" stroke="#34D399" stroke-width="1"/>
+              <text x="170" y="183" text-anchor="middle" fill="#34D399" font-size="11" font-weight="600" font-family="'Segoe UI',system-ui,sans-serif">Agent 2</text>
+              <text x="170" y="197" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="9" font-family="'Segoe UI',system-ui,sans-serif">worktree/</text>
+
+              <rect x="240" y="168" width="90" height="36" rx="6" fill="rgba(52,211,153,0.12)" stroke="#34D399" stroke-width="1"/>
+              <text x="285" y="183" text-anchor="middle" fill="#34D399" font-size="11" font-weight="600" font-family="'Segoe UI',system-ui,sans-serif">Agent 3</text>
+              <text x="285" y="197" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="9" font-family="'Segoe UI',system-ui,sans-serif">worktree/</text>
+
+              <!-- Arrows down to quality gates -->
+              <line x1="55" y1="204" x2="55" y2="228" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+              <line x1="170" y1="204" x2="170" y2="228" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+              <line x1="285" y1="204" x2="285" y2="228" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+
+              <!-- Quality Gates bar -->
+              <rect x="10" y="228" width="320" height="32" rx="6" fill="rgba(248,113,113,0.1)" stroke="#F87171" stroke-width="1"/>
+              <text x="170" y="249" text-anchor="middle" fill="#F87171" font-size="12" font-weight="600" font-family="'Segoe UI',system-ui,sans-serif">Quality Gates: Tests + Linter + Review</text>
+
+              <!-- Arrow down to merge -->
+              <line x1="170" y1="260" x2="170" y2="284" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+
+              <!-- Merge -->
+              <rect x="85" y="284" width="170" height="36" rx="8" fill="rgba(147,197,253,0.12)" stroke="#93C5FD" stroke-width="1.5"/>
+              <text x="170" y="300" text-anchor="middle" fill="#93C5FD" font-size="12" font-weight="600" font-family="'Segoe UI',system-ui,sans-serif">Merge &rarr; Base</text>
+              <text x="170" y="314" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="10" font-family="'Segoe UI',system-ui,sans-serif">State Update</text>
+
+              <!-- Loop arrow back to top -->
+              <path d="M 85,302 L 5,302 L 5,28 L 85,28" fill="none" stroke="rgba(245,158,11,0.3)" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrowOrange)"/>
+              <text x="5" y="170" text-anchor="middle" fill="rgba(245,158,11,0.4)" font-size="10" font-family="'Segoe UI',system-ui,sans-serif" transform="rotate(-90,5,170)">n&auml;chster Batch</text>
+
+              <!-- Arrowhead markers -->
+              <defs>
+                <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+                  <polygon points="0 0, 8 3, 0 6" fill="rgba(255,255,255,0.4)"/>
+                </marker>
+                <marker id="arrowOrange" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+                  <polygon points="0 0, 8 3, 0 6" fill="rgba(245,158,11,0.4)"/>
+                </marker>
+              </defs>
+            </svg>
           </div>
         </div>
       </div>
       <div class="highlight-box slide-learning">
         <p>Agentic AI verschiebt die Rolle: vom Prompten zum <strong>Orchestrieren autonomer Systeme</strong> &mdash; du definierst das Ziel, Agenten finden den Weg.</p>
       </div>
-      <aside class="notes" hidden>Der Shift von &bdquo;Probleme l&ouml;sen&ldquo; zu &bdquo;automatisiert l&ouml;sen&ldquo; ist der Kern von Agentic AI. Statt einzelne Prompts abzusetzen, definiert man Ziele und l&auml;sst spezialisierte Agenten autonom arbeiten. Die Guardrails &mdash; Tests, Linter, Reviews &mdash; werden zu den Leitplanken, innerhalb derer Agenten frei agieren.</aside>
+      <aside class="notes" hidden>Der Shift von &bdquo;Probleme l&ouml;sen&ldquo; zu &bdquo;automatisiert l&ouml;sen&ldquo; ist der Kern von Agentic AI. Das Diagramm zeigt den Orchestrator-Flow aus dem FlappyTones-Projekt: Ein Orchestrator liest den Feature-Graph aus state.json, l&ouml;st Abh&auml;ngigkeiten auf und startet Batches von Sub-Agenten in isolierten Worktrees. Jeder Agent implementiert und testet autonom. Quality Gates (Tests, Linter, Review) m&uuml;ssen bestanden werden, bevor in den Base-Branch gemergt wird. Dann beginnt der n&auml;chste Batch.</aside>
     </section>
 
     <!-- Slide: Realitätscheck — KI-Code auf lange Sicht -->
@@ -765,8 +828,8 @@
     </section>
 
     <!-- Slide: Fazit -->
-    <section class="slide slide--title">
-      <h1>Fazit</h1>
+    <section class="slide">
+      <h2 style="font-size: 2.5rem;">Fazit</h2>
       <div class="slide-body">
         <div class="learnings-list" style="gap: 1.5em;">
           <div class="learning-item fly-in" style="animation-delay: 0.3s; font-size: 1.15em;"><span class="learning-num">&#10148;</span>Programmieren mit KI <strong>macht Spa&szlig;</strong> &mdash; und ver&auml;ndert, wie wir &uuml;ber Softwareentwicklung denken.</div>
